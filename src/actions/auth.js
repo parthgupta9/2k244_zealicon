@@ -13,7 +13,7 @@ export const signup = (authData, navigate) => async (dispatch) => {
   try {
     const { data } = await api.signUp(authData);
     dispatch({ type: SIGNUP_SUCCESS, payload: data });
-    navigate("/otp");
+    navigate("/otp", { state: authData.email });
   } catch (error) {
     dispatch({ type: SIGNUP_FAILURE, payload: error.message });
     console.log(error);
@@ -34,15 +34,21 @@ export const login = (authData, navigate) => async (dispatch) => {
 export const verifyOtp = (data, navigate) => async (dispatch) => {
   try {
     const response = await api.verifyOtp(data);
-    dispatch({ type: VERIFY_OTP_SUCCESS });
-    if (response.status === 200) {
-      navigate("/user/otp", { state: data.email });
+    if (response.status === 404) {
+      const { message } = response.data;
+      dispatch({
+        type: VERIFY_OTP_FAILURE,
+        payload: message,
+      });
+    } else if (response.status === 400) {
+      const { message } = response.data;
+      dispatch({ type: VERIFY_OTP_FAILURE, payload: message });
+    } else if (response.status === 200) {
+      dispatch({ type: VERIFY_OTP_SUCCESS });
+      navigate("/");
     }
   } catch (error) {
     dispatch({ type: VERIFY_OTP_FAILURE, payload: error.message });
-    setTimeout(() => {
-      navigate("/signup");
-    }, 5000);
     console.log(error);
   }
 };

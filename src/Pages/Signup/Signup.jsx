@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { signup } from '../actions/auth';
 
-const SignupPage = () => {
+const Signup = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -45,4 +45,4 @@ const SignupPage = () => {
   );
 };
 
-export default SignupPage;
+export default Signup;
