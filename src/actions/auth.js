@@ -9,8 +9,9 @@ import {
 } from "./actionType/actionType";
 
 // Action creators
-export const signup = (authData, navigate) => async (dispatch) => {
+export const signup = (authData, navigate, loaderOff) => async (dispatch) => {
   try {
+    console.log("Auth Data from frontend", authData);
     const response = await api.signUp(authData);
     const { data } = response;
 
@@ -35,7 +36,7 @@ export const signup = (authData, navigate) => async (dispatch) => {
     dispatch({ type: SIGNUP_FAILURE, payload: error.message });
     console.log(error);
   } finally {
-    // loaderOff();
+    loaderOff();
   }
 };
 

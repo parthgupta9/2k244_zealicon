@@ -15,7 +15,14 @@ API.interceptors.request.use((req) => {
   return req;
 });
 
-export const signUp = (authData) => API.post("/api/auth/signup", authData);
+export const signUp = (formData) => {
+  const config = {
+    headers: {
+      "Content-type": "multipart/form-data",
+    },
+  };
+  return API.post("/api/auth/signup", formData, config);
+};
 export const logIn = (authData) => API.post("/api/auth/login", authData);
 export const verifyOtp = (data) => API.post("/api/auth/verify-otp", data);
 export const resendOtp = (data) => API.post("/api/auth/login", data);
