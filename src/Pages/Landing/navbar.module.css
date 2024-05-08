@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.image {
+    height: 917px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.list{
+    position: absolute;
+    top: 0;
+    margin-top: 2%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.list ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    flex-wrap: wrap;
+}
+.logo{
+    cursor: default;
+}
+.list ul li{
+    color: #fff;
+    margin: 0px 24px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28.8px;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+}
+.register{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    text-align: center;
+}
+.date{
+    margin-top: -15.5%;
+    color: rgba(126, 242, 246, 1);
+    font-family: Rabu Kilwon;
+    font-size: 37px;
+    font-weight: 400;
+    line-height: 36.26px;
+}
+.btnBox{
+    margin-top: 36%;
+}
+.btnBox button{
+    margin: 0px 18px;
+}
+.button{
+    width: 129px;
+    height: 43.44px;
+    border: 4px solid rgba(19, 59, 105, 1);
+    background: linear-gradient(355.58deg, #183D68 3.43%, #3079CE 96.3%);
+    box-shadow: 0px 0.88px 1.14px 0px rgba(255, 255, 255, 0.46) inset;
+    box-shadow: 0px -0.88px 1.14px 0px rgba(0, 0, 0, 0.25) inset;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+@media only screen and (max-width: 500px) {
+    .btnBox{
+        margin-top: 76%;
+    }
+  }
