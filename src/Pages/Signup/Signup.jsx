@@ -6,16 +6,17 @@ import { validationSchema1, validationSchema2 } from "./validationSchema";
 import { signup } from "../../actions/auth";
 import styles from "./Signup.module.css";
 import Loader from "../../components/Loader/Loader";
-import ghost from "./assets/ghost.png";
+import ghost from "./assets/ghost.svg";
 import camera from "./assets/camera.svg";
+import next from "./assets/next.svg";
 
-const Signup = () => {
+const Signup = ({ setModal }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
   const { isAuthenticated, error } = useSelector((state) => state.authReducer);
   const [isLoading, setIsLoading] = useState(false);
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
   const [image, setImage] = useState(null);
   const loaderoff = () => setIsLoading(false);
   const [formData, setFormData] = useState({
@@ -26,24 +27,25 @@ const Signup = () => {
   });
 
   const handleSubmit = async (values) => {
-    console.log("Values", values);
     setFormData({ ...formData, ...values });
     if (step === 1) {
       setStep((prev) => prev + 1);
       return;
-    } else {
-      setIsLoading(true);
-      // try {
-      //   const formDataToSend = new FormData();
-      //   formDataToSend.append("name", values);
-      //   formDataToSend.append("email", values.email);
-      //   formDataToSend.append("phone", values.phone);
-      //   formDataToSend.append("id_card", values.id_card);
-      //   console.log("Formdata",formDataToSend)
-      //   dispatch(signup(formDataToSend, navigate, loaderoff));
-      // } catch (error) {
-      //   console.log("Error Occured");
+    }
+    setIsLoading(true);
+    try {
+      console.log("Values", values.email,values.id_card, values.phone);
+      let formDataToSend = new FormData();
+      formDataToSend.append('name', values.name);
+      formDataToSend.append('email', values.email);
+      formDataToSend.append('phone', values.phone);
+      formDataToSend.append('id_card', values.id_card);
+      // for(var pair of formDataToSend.entries()) {
+      //   console.log(`${pair[0]}: ${pair[1]}`);
       // }
+      dispatch(signup(formDataToSend, navigate, loaderoff));
+    } catch (error) {
+      console.log("Error Occured");
     }
   };
 
@@ -106,7 +108,7 @@ const Signup = () => {
                   <div className={styles.inputwrap}>
                     <Field
                       id="phone"
-                      type="number"
+                      type="tel"
                       name="phone"
                       placeholder="9129380087"
                     />
@@ -119,7 +121,7 @@ const Signup = () => {
                 </div>
                 <div className={styles.btnwrap}>
                   <button type="submit" disabled={formik.isSubmitting}>
-                    <span>Next &gt;</span>
+                    <img src={next} alt="" />
                   </button>
                   <p>
                     Already have an account?<Link to="/login">Login</Link>
@@ -213,7 +215,9 @@ const Signup = () => {
                           </div>
                           <p>Upload</p>
                         </div>
-                        <p className={styles.redText}>*Once uploaded it can not be edited.</p>
+                        <p className={styles.redText}>
+                          *Once uploaded it can not be edited.
+                        </p>
                       </>
                     )}
                   </div>
@@ -230,9 +234,11 @@ const Signup = () => {
                   >
                     <span>
                       {isLoading ? (
-                        <Loader loaderht="20px" spinnerbox="8px" />
+                        <div className={styles.loaderWrap}>
+                          <Loader loaderht="30px" spinnerbox="20px" />
+                        </div>
                       ) : (
-                        "Submit"
+                        <img src={next} alt="" />
                       )}
                     </span>
                   </button>
@@ -250,18 +256,37 @@ const Signup = () => {
   };
   return (
     <div className={styles.container}>
-      <div className={styles.innerContWrap}>
-        {true && (
-          <p style={{ color: "red", fontSize: "20px" }}>This is an error</p>
-        )}
-        <div className={styles.innerCont}>
-          <div className={styles.imgCont}>
-            <img src={ghost} alt="ghost" />
-          </div>
-          <div className={styles.formCont}>
-            <h2>Let's get started!</h2>
-            {renderStepForm()}
-          </div>
+      <button className={styles.cross} onClick={() => setModal(false)}>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="Menu / Close_MD">
+            <path
+              id="Vector"
+              d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </g>
+        </svg>
+      </button>
+      {error && (
+        <p style={{ color: "red", fontWeight: "700", fontSize: "22px", paddingTop:"0.8rem"}}>
+          {error}
+        </p>
+      )}
+      <div className={styles.innerCont}>
+        <div className={styles.imgCont}>
+          <img src={ghost} alt="ghost" />
+        </div>
+        <div className={styles.formCont}>
+          <h2>Let's get started!</h2>
+          {renderStepForm()}
         </div>
       </div>
     </div>

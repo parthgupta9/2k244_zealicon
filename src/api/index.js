@@ -16,6 +16,9 @@ API.interceptors.request.use((req) => {
 });
 
 export const signUp = (formData) => {
+  for (var pair of formData.entries()) {
+    console.log(`${pair[0]}: ${pair[1]}`);
+  }
   const config = {
     headers: {
       "Content-type": "multipart/form-data",

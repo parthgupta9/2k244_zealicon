@@ -11,7 +11,6 @@ import {
 // Action creators
 export const signup = (authData, navigate, loaderOff) => async (dispatch) => {
   try {
-    console.log("Auth Data from frontend", authData);
     const response = await api.signUp(authData);
     const { data } = response;
 
