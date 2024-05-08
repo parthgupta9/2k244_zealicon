@@ -128,15 +128,91 @@
   font-weight: 400;
   line-height: 160%; /* 1.4rem */
 }
-.uploadCont{
-    width: 100%;
-    height: 200px;
-    border: 2px dashed gray;
+.uploadCont {
+  width: 24.3125rem;
+  height: 9.5rem;
+  border: 2px dashed gray;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
 }
-.uploadCont input{
-    width: 100%;
-    height: 100%;
+.uploadCont input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border-radius: 5px;
 }
+.uploadCont img {
+  width: 100%;
+  height: 100%;
+}
+.upload {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  padding: 0.375rem 1rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  border-radius: 3.9375rem;
+  background: rgba(83, 255, 162, 0.5);
+  backdrop-filter: blur(1px);
+}
+.upload p {
+  color: #fff;
+  text-align: center;
+  font-family: "DM Sans";
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.preUpload {
+  display: flex;
+  flex-direction: column;
+  gap: 0.62rem;
+}
+.svgHold {
+  width: 3.5rem;
+  height: 3.5rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: white;
+}
+.svgHold img {
+  width: 1.5rem;
+  height: 1.666rem;
+}
+.preUpload p {
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  font-family: "DM Sans";
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.redText {
+  margin-top: .5rem;
+  color: #ff5353;
+  font-family: "DM Sans";
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%; /* 1.2rem */
+}
+
 /* 75 rem's */
 @media screen and (max-width: 1220px) {
   .innerCont {
@@ -154,6 +230,9 @@
     margin-bottom: 1.2525rem;
   }
   .inputwrap {
+    width: 23rem;
+  }
+  .uploadCont {
     width: 23rem;
   }
   .btnwrap {
@@ -188,6 +267,9 @@
     width: 100%;
     width: 20rem;
   }
+  .uploadCont {
+    width: 20rem;
+  }
   .inputCont input {
     height: 2rem;
   }
@@ -217,6 +299,9 @@
     gap: 0.25rem;
   }
   .inputwrap {
+    width: 100%;
+  }
+  .uploadCont {
     width: 100%;
   }
   .btnwrap {

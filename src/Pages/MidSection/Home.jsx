@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import style from './home.module.css'
-import collage from '../assets/collage.png'
-import bingo from '../assets/bingo.png'
-import hdfc from '../assets/hdfc.png'
-import xoxoday from '../assets/xoxoday.png'
-import honda from '../assets/honda.png'
+import collage from '../../assets/collage.png'
+import bingo from '../../assets/bingo.png'
+import hdfc from '../../assets/hdfc.png'
+import xoxoday from '../../assets/xoxoday.png'
+import honda from '../../assets/honda.png'
 
 const Home = () => {
     const [btn, setBtn] =useState(false);

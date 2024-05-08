@@ -7,6 +7,7 @@ import { signup } from "../../actions/auth";
 import styles from "./Signup.module.css";
 import Loader from "../../components/Loader/Loader";
 import ghost from "./assets/ghost.png";
+import camera from "./assets/camera.svg";
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -14,7 +15,8 @@ const Signup = () => {
   const location = useLocation();
   const { isAuthenticated, error } = useSelector((state) => state.authReducer);
   const [isLoading, setIsLoading] = useState(false);
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(2);
+  const [image, setImage] = useState(null);
   const loaderoff = () => setIsLoading(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -24,7 +26,7 @@ const Signup = () => {
   });
 
   const handleSubmit = async (values) => {
-    console.log("Values", values)
+    console.log("Values", values);
     setFormData({ ...formData, ...values });
     if (step === 1) {
       setStep((prev) => prev + 1);
@@ -157,23 +159,63 @@ const Signup = () => {
                 </div>
                 <div className={styles.inputCont}>
                   <label htmlFor="file">Upload your college ID card</label>
-                  <div className={styles.inputwrap}>
-                    <div className={styles.uploadCont}>
-                      <input
-                        id="file"
-                        type="file"
-                        name="id_card"
-                        onChange={(event) => {
-                          if (event.currentTarget.files) {
-                            formik.setFieldValue(
-                              "id_card",
-                              event.currentTarget.files[0]
-                            );
-                          }
-                        }}
-                        style={{ display: "none" }}
-                      />
-                    </div>
+                  <div
+                    className={styles.uploadCont}
+                    onClick={() =>
+                      document.querySelector(".uploadInput").click()
+                    }
+                  >
+                    <input
+                      id="file"
+                      type="file"
+                      name="id_card"
+                      onChange={(event) => {
+                        if (event.currentTarget.files) {
+                          formik.setFieldValue(
+                            "id_card",
+                            event.currentTarget.files[0]
+                          );
+                          setImage(
+                            URL.createObjectURL(event.currentTarget.files[0])
+                          );
+                        }
+                      }}
+                      className="uploadInput"
+                      style={{ display: "none" }}
+                    />
+                    {image ? (
+                      <>
+                        <div className={styles.upload}>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                          >
+                            <path
+                              d="M5 13L9 17L19 7"
+                              stroke="white"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                          <p>Uploaded</p>
+                        </div>
+                        <img src={image} />
+                      </>
+                    ) : (
+                      <>
+                        <div className={styles.preUpload}>
+                          <div className={styles.svgHold}>
+                            <img src={camera} alt="" />
+                          </div>
+                          <p>Upload</p>
+                        </div>
+                        <p className={styles.redText}>*Once uploaded it can not be edited.</p>
+                      </>
+                    )}
                   </div>
                   <ErrorMessage
                     className={styles.error}
@@ -183,7 +225,6 @@ const Signup = () => {
                 </div>
                 <div className={styles.btnwrap}>
                   <button
-                    
                     type="submit"
                     disabled={formik.isSubmitting || isLoading}
                   >
