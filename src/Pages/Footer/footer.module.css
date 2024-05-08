@@ -1,0 +1,47 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.mainContainer{
+    background-color: #000;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* height: 100vh;
+    width: 100vw; */
+}
+.leftContainer ul,.rightContainer ul{
+    list-style: none;
+    padding: 20px 0px;
+    color: #fff;
+} 
+.leftContainer ul li,.rightContainer ul li{
+    padding: 6px;
+}
+.rightContainer{
+    text-align: center;
+}
+.textBlue{
+    color: #8EEEF9;
+    font-weight: bolder;
+}
+.footer_map{
+    width: 100%;
+    height: 100%;
+}
+.icon{
+    width: 34px;
+    height: 34px;
+    padding: 6px;
+}
+.contact{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.gmail_icon{
+    /* height: 18px;
+    width: 18px; */
+    margin-right: 8px;
+    margin-left: -18px;
+}

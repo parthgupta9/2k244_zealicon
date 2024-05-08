@@ -1,20 +1,19 @@
 import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import AllRoutes from './AllRoutes'
-import Home from './Pages/Home/Home'
-import Otp from './Pages/Otp/Otp'
-import Login from './Pages/Login/Login'
-import Signup from './Pages/Signup/Signup'
+import Home from './components/MidSection/Home';
+import Navbar from './components/Landing/Navbar'
+import Offers from './components/Offers/offers'
+import Footer from './components/Footer/footer'
 
 const App = () => {
   return (
     <div className='App'>
         <Router>
-            {/* Navbar */}
+             <Navbar/>
             <Home/>
-            <Otp/>
-            <Login/>
-            <Signup/>
+            <Offers/>
+            <Footer/>
             <AllRoutes/>
         </Router>
     </div>
