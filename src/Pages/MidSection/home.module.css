@@ -11,7 +11,7 @@
   width: 100%;
   overflow-x: hidden;
   overflow-y: hidden;
-  background: url("../assets/homebg.png");
+  background: url("../../assets/BG 2.png"); 
   background-repeat: no-repeat;
   object-fit: cover;
 }
@@ -37,7 +37,7 @@
 .glass {
   height: 35rem;
   width: 64vw;
-  background-image: url("../assets/glass.png");
+  background-image: url("../../assets/glass.png");
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
