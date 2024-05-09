@@ -56,6 +56,7 @@
 .btnBox{
     margin-top: 36%;
     display: flex;
+    gap: 10px;
     justify-content: center;
 }
 .btnBox button{
@@ -69,7 +70,15 @@
         font-size: 16px;
         margin: 0px 12px;
     }
-    .logo{
-
+    .btnBox{
+        display: flex;
+        margin-bottom: 10vh;
+        margin-bottom: 2px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .date{
+        margin-top: -5%;
     }
   }
