@@ -43,7 +43,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div className={`${style.sponsors}`}>
-                    <h2 className={`${style.sphead}`}>Our sponsors</h2>
+                    <h2 className={`${style.sphead}`}>Our Sponsors</h2>
                     
                     <div className={`${style.spcontent}`}>
                         <img src={hdfc} alt="" className={`${style.hdfcimg}`} />
