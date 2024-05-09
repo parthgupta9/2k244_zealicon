@@ -40,7 +40,7 @@ const Login = () => {
           <div className={styles.inputCont}>
             <label htmlFor="phone">Enter your mobile number</label>
             <div className={styles.inputWrap}>
-              <input type="tel" name="phone" value={phone} onChange={handleChange}/>
+              <input type="tel" name="phone" value={phone} onChange={handleChange} autoComplete="off"/>
             </div>
           </div>
           <div className={styles.btnwrap}>

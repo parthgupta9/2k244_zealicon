@@ -4,6 +4,7 @@ import { useLocation, Link } from "react-router-dom";
 import styles from "./Otp.module.css";
 import submitBtn from "./assets/submit.svg";
 import Loader from "../../components/Loader/Loader";
+import OtpInput from "../../components/Loader/OtpInput/OtpInput";
 
 const Otp = () => {
   const dispatch = useDispatch();
@@ -11,20 +12,21 @@ const Otp = () => {
   const { isAuthenticated, error } = useSelector((state) => state.authReducer);
   const email = location.state;
   const [isLoading, setIsLoading] = useState(false);
-  const [otp, setOtp] = useState("");
-
-  const handleChange = (e) => {
-    setOtp(e.target.value);
-  };
+  const length = 6;
+  const [otp, setOtp] = useState(new Array(length).fill(""));
 
   const handleSubmit = (e) => {
+    const data = {
+      email: "",
+      otp: otp.join(""),
+    };
+    // console.log("Otp", data);
     e.preventDefault();
-    setIsLoading(true);
-    if (otp.trim() < 6) {
-      // 6 dig
-      // Formik Validation will be used here
+    if (data.otp.trim().length < 6) {
+      alert("Enter the Full OTP!");
       return;
     }
+    setIsLoading(true);
     dispatch(verifyOtp({ email, otp }));
   };
 
@@ -43,12 +45,7 @@ const Otp = () => {
           <div className={styles.inputCont}>
             <label htmlFor="name">Enter the OTP sent to your email.</label>
             <div className={styles.inputwrap}>
-              <input
-                type="text"
-                name="otp"
-                value={otp}
-                onChange={handleChange}
-              />
+              <OtpInput otp={otp} setOtp={setOtp} length={length} />
             </div>
           </div>
           <p className={styles.resendLink}>

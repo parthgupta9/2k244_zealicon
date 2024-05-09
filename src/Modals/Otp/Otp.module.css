@@ -36,27 +36,6 @@
 .inputwrap {
   border-radius: 0.25rem;
   overflow: hidden;
-  width: 24.3125rem;
-  height: 2.5rem;
-}
-.inputCont input {
-  display: flex;
-  height: 100%;
-  width: 100%;
-  padding: 0.5625rem;
-  border: none;
-  align-items: flex-start;
-  gap: 0.625rem;
-  border-radius: 0.25rem;
-  background: #3d5c60;
-}
-.inputCont input::placeholder {
-  color: #fff;
-  font-family: "DM Sans";
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 160%; /* 1.4rem */
 }
 .btnwrap {
   position: relative;
@@ -125,7 +104,6 @@
   .formCont h2 {
     margin-bottom: 1.2525rem;
   }
-  .inputwrap,
   .btnwrap button {
     width: 23rem;
   }
@@ -148,13 +126,9 @@
   .innerCont label {
     font-size: 0.85rem;
   }
-  .inputwrap,
   .btnwrap button {
     width: 100%;
     width: 20rem;
-  }
-  .inputCont input {
-    height: 2rem;
   }
   .inputCont input::placeholder {
     font-size: 0.65rem;
@@ -173,10 +147,6 @@
   .formCont .form {
     width: 100%;
   }
-  .inputCont {
-    gap: 0.25rem;
-  }
-  .inputwrap,
   .btnwrap button {
     width: 100%;
   }

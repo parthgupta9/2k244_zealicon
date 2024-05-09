@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useLocation, Link } from "react-router-dom";
+import {  useLocation, Link } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { validationSchema1, validationSchema2 } from "./validationSchema";
 import { signup } from "../../actions/auth";
@@ -11,7 +11,6 @@ import next from "./assets/next.svg";
 
 const Signup = ({ setModal }) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const location = useLocation();
   const { isAuthenticated, error } = useSelector((state) => state.authReducer);
   const [isLoading, setIsLoading] = useState(false);
@@ -42,7 +41,7 @@ const Signup = ({ setModal }) => {
       // for(var pair of formDataToSend.entries()) {
       //   console.log(`${pair[0]}: ${pair[1]}`);
       // }
-      dispatch(signup(formDataToSend, navigate, loaderoff));
+      dispatch(signup(formDataToSend, loaderoff));
     } catch (error) {
       console.log("Error Occured");
     }
