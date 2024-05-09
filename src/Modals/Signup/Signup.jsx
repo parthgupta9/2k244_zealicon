@@ -6,7 +6,6 @@ import { validationSchema1, validationSchema2 } from "./validationSchema";
 import { signup } from "../../actions/auth";
 import styles from "./Signup.module.css";
 import Loader from "../../components/Loader/Loader";
-import ghost from "./assets/ghost.svg";
 import camera from "./assets/camera.svg";
 import next from "./assets/next.svg";
 
@@ -34,12 +33,12 @@ const Signup = ({ setModal }) => {
     }
     setIsLoading(true);
     try {
-      console.log("Values", values.email,values.id_card, values.phone);
+      console.log("Values", values.email, values.id_card, values.phone);
       let formDataToSend = new FormData();
-      formDataToSend.append('name', values.name);
-      formDataToSend.append('email', values.email);
-      formDataToSend.append('phone', values.phone);
-      formDataToSend.append('id_card', values.id_card);
+      formDataToSend.append("name", values.name);
+      formDataToSend.append("email", values.email);
+      formDataToSend.append("phone", values.phone);
+      formDataToSend.append("id_card", values.id_card);
       // for(var pair of formDataToSend.entries()) {
       //   console.log(`${pair[0]}: ${pair[1]}`);
       // }
@@ -255,40 +254,9 @@ const Signup = ({ setModal }) => {
     }
   };
   return (
-    <div className={styles.container}>
-      <button className={styles.cross} onClick={() => setModal(false)}>
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g id="Menu / Close_MD">
-            <path
-              id="Vector"
-              d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18"
-              stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </g>
-        </svg>
-      </button>
-      {error && (
-        <p style={{ color: "red", fontWeight: "700", fontSize: "22px", paddingTop:"0.8rem"}}>
-          {error}
-        </p>
-      )}
-      <div className={styles.innerCont}>
-        <div className={styles.imgCont}>
-          <img src={ghost} alt="ghost" />
-        </div>
-        <div className={styles.formCont}>
-          <h2>Let's get started!</h2>
-          {renderStepForm()}
-        </div>
-      </div>
+    <div className={styles.formCont}>
+      <h2>Let's get started!</h2>
+      {renderStepForm()}
     </div>
   );
 };

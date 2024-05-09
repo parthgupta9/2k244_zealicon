@@ -1,54 +1,3 @@
-.container{
-  position: relative;
-  max-width: 75rem;
-  width: 100%;
-  height: 100%;
-  border-radius: 0.625rem;
-  background: rgba(16, 16, 16, 0.66);
-  box-shadow: 0px 4px 100px 0px rgba(142, 191, 249, 0.2);
-  backdrop-filter: blur(100px);
-}
-.cross {
-  position: absolute;
-  width: 1.5rem;
-  height: 1.5rem;
-  flex-shrink: 0;
-  background-color: transparent;
-  border: none;
-  top: 2%;
-  right: 4%;
-  z-index: 100;
-  display: grid;
-  place-content: center;
-}
-.innerContWrap {
-  display: flex;
-  gap: 0;
-  flex-direction: column;
-  border: 2px solid green;
-}
-.innerCont {
-  max-width: 75rem;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 8rem;
-  padding: 4.5rem 5.5rem;
-}
-.imgCont {
-  max-width: 31rem;
-  max-height: 31rem;
-  width: 100%;
-  height: 100%;
-  flex-shrink: 0;
-  overflow: hidden;
-}
-.imgCont img {
-  width: 100%;
-  height: 100%;
-}
 .formCont {
   max-width: 43rem;
   width: 100%;
@@ -141,108 +90,35 @@
   font-weight: 400;
   line-height: 160%; /* 1.4rem */
 }
-.uploadCont {
-  width: 24.3125rem;
-  height: 9.5rem;
-  border: 2px dashed gray;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  position: relative;
-}
-.uploadCont input {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  border-radius: 5px;
-}
-.uploadCont img {
-  width: 100%;
-  height: 100%;
-}
-.upload {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  padding: 0.375rem 1rem;
-  align-items: center;
-  justify-content: center;
-  gap: 0.625rem;
-  border-radius: 3.9375rem;
-  background: rgba(83, 255, 162, 0.5);
-  backdrop-filter: blur(1px);
-}
-.upload p {
-  color: #fff;
-  text-align: center;
+.btnwrap a {
+  color: #8eeef9;
   font-family: "DM Sans";
-  font-size: 1.125rem;
+  font-size: 0.875rem;
   font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+  font-weight: 400;
+  line-height: 160%;
+  text-decoration-line: underline;
 }
-.preUpload {
-  display: flex;
-  flex-direction: column;
-  gap: 0.62rem;
-}
-.svgHold {
-  width: 3.5rem;
-  height: 3.5rem;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background-color: white;
-}
-.svgHold img {
-  width: 1.5rem;
-  height: 1.666rem;
-}
-.preUpload p {
-  color: rgba(255, 255, 255, 0.5);
-  text-align: center;
+.resendLink {
+  color: #fff;
   font-family: "DM Sans";
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 500;
-  line-height: normal;
+  line-height: 160%; /* 1.4rem */
 }
-.redText {
-  margin-top: 0.5rem;
-  color: #ff5353;
+.resendLink span {
+  color: #7ef2f6;
   font-family: "DM Sans";
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-style: normal;
   font-weight: 500;
-  line-height: 160%; /* 1.2rem */
-}
-.error {
-  margin-top: -0.1rem;
-  margin-left: 0.1rem;
-  color: red;
-  font-weight: 700;
-  font-size: 0.8rem;
+  line-height: 160%;
+  text-decoration-line: underline;
 }
 
 /* 75 rem's */
 @media screen and (max-width: 1220px) {
-  .innerCont {
-    gap: 5.6rem;
-  }
-  .imgCont {
-    max-width: 26.5rem;
-    max-height: 26.5rem;
-  }
-
   .formCont {
     max-width: 30rem;
   }
@@ -253,9 +129,6 @@
   .btnwrap button {
     width: 23rem;
   }
-  .uploadCont {
-    width: 23rem;
-  }
   .btnwrap {
     margin-top: 2.5rem;
   }
@@ -263,15 +136,6 @@
 
 /* 61 rem'z */
 @media screen and (max-width: 990px) {
-  .innerCont {
-    width: 100%;
-    gap: 4rem;
-    padding: 2.5rem 3.5rem;
-  }
-  .imgCont {
-    max-width: 24rem;
-    max-height: 24rem;
-  }
   .formCont {
     max-width: 24rem;
   }
@@ -289,9 +153,6 @@
     width: 100%;
     width: 20rem;
   }
-  .uploadCont {
-    width: 20rem;
-  }
   .inputCont input {
     height: 2rem;
   }
@@ -305,11 +166,6 @@
 
 /* Mobile */
 @media screen and (max-width: 720px) {
-  .innerCont {
-    flex-direction: column;
-    gap: 2.5rem;
-    padding: 1.5rem 1rem;
-  }
   .formCont h2 {
     font-size: 1.15rem;
     margin-bottom: 1.25rem;
@@ -322,9 +178,6 @@
   }
   .inputwrap,
   .btnwrap button {
-    width: 100%;
-  }
-  .uploadCont {
     width: 100%;
   }
   .btnwrap {
