@@ -13,7 +13,7 @@ const initialState = {
   isAuthenticated: false,
   userData: {},
   error: null,
-  step: 1,
+  step: 2,
 };
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -26,13 +26,25 @@ const authReducer = (state = initialState, action) => {
         step: action.payload.step,
         error: null,
       };
+
     case SIGNUP_FAILURE:
-    case LOGIN_FAILURE:
-    case VERIFY_OTP_FAILURE:
+      console.log("SINUP FAILEYUE", action.payload);
       return {
         ...state,
         userData: {},
-        step: action.payload.step || state.step,
+        step: action.payload.step,
+        isAuthenticated: false,
+        error: action.payload.error,
+      };
+    case LOGIN_FAILURE:
+      return {
+        ...state,
+        isAuthenticated: false,
+        error: action.payload.error,
+      };
+    case VERIFY_OTP_FAILURE:
+      return {
+        ...state,
         isAuthenticated: false,
         error: action.payload.error,
       };
@@ -41,7 +53,7 @@ const authReducer = (state = initialState, action) => {
         ...state,
         userData: action.payload.userData,
         isAuthenticated: true,
-        state: action.payload.step,
+        step: action.payload.step,
         error: null,
       };
     case RESEND_OTP_SUCCESS:

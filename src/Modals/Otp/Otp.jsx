@@ -5,33 +5,31 @@ import styles from "./Otp.module.css";
 import submitBtn from "./assets/submit.svg";
 import Loader from "../../components/Loader/Loader";
 import OtpInput from "../../components/Loader/OtpInput/OtpInput";
+import { verifyOtp } from "../../actions/auth";
 
 const Otp = () => {
   const dispatch = useDispatch();
   const location = useLocation();
-  const {
-    isAuthenticated,
-    error,
-    userData: { email },
-  } = useSelector((state) => state.authReducer);
+  const { isAuthenticated, error, userData } = useSelector(
+    (state) => state.authReducer
+  );
   const [isLoading, setIsLoading] = useState(false);
   const length = 6;
   const [otp, setOtp] = useState(new Array(length).fill(""));
   const loaderOff = () => setIsLoading(false);
 
   const handleSubmit = (e) => {
-    const data = {
-      email: email,
-      otp: otp.join(""),
-    };
-    // console.log("Otp", data);
     e.preventDefault();
-    if (data.otp.trim().length < 6) {
+    const data = {
+      email: userData.email,
+      otp: parseInt(otp.join("").trim(), 10),
+    };
+    if (data.otp.length < 6) {
       alert("Enter the Full OTP!");
       return;
     }
     setIsLoading(true);
-    dispatch(verifyOtp({ email, otp }, loaderOff));
+    dispatch(verifyOtp(data, loaderOff));
   };
 
   const resendOtp = async () => {

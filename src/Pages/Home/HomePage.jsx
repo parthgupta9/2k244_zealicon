@@ -12,7 +12,7 @@ const HomePage = () => {
   return (
     <>
       {isModalOpen && <Modal setIsModalOpen={setIsModalOpen} />}
-      <Navbar />
+      <Navbar setIsModalOpen={setIsModalOpen}/>
       <Home />
       <Offers />
       <Footer />

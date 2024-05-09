@@ -5,7 +5,7 @@ import bg_phone from "../../assets/BG_phone.png";
 import styles from "./navbar.module.css";
 import Button from "../../components/Button/Button";
 
-const Navbar = () => {
+const Navbar = ({setIsModalOpen}) => {
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -40,7 +40,7 @@ const Navbar = () => {
         <p className={`${styles.date}`}>20th May-22th May</p>
         <div className={`${styles.btnBox}`}>
           <Button type={"small"} text={"Download App"} action={() => {}} />
-          <Button type={"small"} text={"Register Here"} action={() => {}} />
+          <Button type={"small"} text={"Register Here"} action={() => setIsModalOpen(true)} />
         </div>
       </div>
     </>

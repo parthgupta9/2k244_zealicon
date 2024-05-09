@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {  useLocation, Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { validationSchema1, validationSchema2 } from "./validationSchema";
 import { signup } from "../../actions/auth";
@@ -16,6 +16,7 @@ const Signup = ({ setModal }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [step, setStep] = useState(1);
   const [image, setImage] = useState(null);
+  const [photo, setPhoto] = useState();
   const loaderoff = () => setIsLoading(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -32,27 +33,33 @@ const Signup = ({ setModal }) => {
     }
     setIsLoading(true);
     try {
-      console.log("Values", values.email, values.id_card, values.phone);
-      let formDataToSend = new FormData();
-      formDataToSend.append("name", values.name);
-      formDataToSend.append("email", values.email);
-      formDataToSend.append("phone", values.phone);
-      formDataToSend.append("id_card", values.id_card);
+      console.log(
+        "Values",
+        values.email,
+        values.id_card,
+        values.phone,
+        values.id_card
+      );
+      // let formDataToSend = new FormData();
+      // formDataToSend.append("name", values.name);
+      // formDataToSend.append("email", values.email);
+      // formDataToSend.append("phone", values.phone);
+      // formDataToSend.append("id_card", values.id_card);
       // for(var pair of formDataToSend.entries()) {
       //   console.log(`${pair[0]}: ${pair[1]}`);
       // }
-      dispatch(signup(formDataToSend, loaderoff));
+      const data = {
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+        id_card: photo,
+      };
+      console.log("Form DATA", data);
+      dispatch(signup(data, loaderoff));
     } catch (error) {
       console.log("Error Occured");
     }
   };
-
-  // Redirect if already authenticated
-  if (isAuthenticated) {
-    const { from } = location.state || { from: { pathname: "/" } };
-    navigate(from);
-    return null;
-  }
 
   const renderStepForm = () => {
     switch (step) {
@@ -178,6 +185,12 @@ const Signup = ({ setModal }) => {
                           setImage(
                             URL.createObjectURL(event.currentTarget.files[0])
                           );
+                          const file = event.currentTarget.files[0];
+                          const reader = new FileReader();
+                          reader.readAsDataURL(file);
+                          reader.onloadend = () => {
+                            setPhoto(reader.result);
+                          };
                         }
                       }}
                       className="uploadInput"

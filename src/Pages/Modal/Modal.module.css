@@ -3,6 +3,8 @@
   width: 100vw;
   display: flex;
   justify-content: center;
+  z-index: 1000;
+  margin-top: 10%;
 }
 .container {
   position: relative;

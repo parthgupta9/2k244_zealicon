@@ -15,17 +15,8 @@ API.interceptors.request.use((req) => {
   return req;
 });
 
-export const signUp = (formData) => {
-  for (var pair of formData.entries()) {
-    console.log(`${pair[0]}: ${pair[1]}`);
-  }
-  const config = {
-    headers: {
-      "Content-type": "multipart/form-data",
-    },
-  };
-  return API.post("/api/auth/signup", formData, config);
-};
+export const signUp = (formData) =>
+  API.post("/api/auth/signup", formData);
 export const logIn = (authData) => API.post("/api/auth/login", authData);
 export const verifyOtp = (data) => API.post("/api/auth/verify-otp", data);
 export const resendOtp = (data) => API.post("/api/auth/login", data);

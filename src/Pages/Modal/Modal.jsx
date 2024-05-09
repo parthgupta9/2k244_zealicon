@@ -49,14 +49,14 @@ const Modal = ({ setIsModalOpen }) => {
           <div className={styles.imgCont}>
             <img src={ghost} alt="ghost" />
           </div>
-          {step == 1 ? (
+          {step === 1 ? (
             <Login />
-          ) : step == 2 ? (
+          ) : step === 2 ? (
             <Signup />
-          ) : step == 3 ? (
+          ) : step === 3 ? (
             <Otp />
-          ) : step == 4 ? (
-            <pay />
+          ) : step === 4 ? (
+            <Pay />
           ) : (
             <Zeal />
           )}

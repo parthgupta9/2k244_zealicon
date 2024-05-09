@@ -17,25 +17,33 @@ export const signup = (authData, loaderOff) => async (dispatch) => {
 
     if (response.status === 201) {
       // Set User Data here for email
+      console.log("AuthData.email", authData.email);
       dispatch({
         type: SIGNUP_SUCCESS,
         payload: { step: 3, userData: { email: authData.email } },
       }); // 3rd step for OTP
-    } else if (response.status === 409) {
+    }
+  } catch (error) {
+    if (error.response.status === 404) {
+      dispatch({ type: SIGNUP_FAILURE, payload: { error: data.message } });
+    } else if (error.response.status === 500) {
+      dispatch({ type: SIGNUP_FAILURE, payload: { error: data.message } });
+    } else if (error.response.status === 409) {
       // user already exists
       dispatch({
         type: SIGNUP_FAILURE,
-        payload: { error: data.message, step: 1 },
+        payload: {
+          error: "Already Registered, Login Instead!",
+          step: 1,
+          userData: { email: authData.email },
+        },
       });
-    } else if (response.status === 404) {
-      dispatch({ type: SIGNUP_FAILURE, payload: { error: data.message } });
-    } else if (response.status === 500) {
-      dispatch({ type: SIGNUP_FAILURE, payload: { error: data.message } });
     } else {
-      throw new Error("Unexpected server response");
+      dispatch({
+        type: SIGNUP_FAILURE,
+        payload: { error: error.message },
+      });
     }
-  } catch (error) {
-    dispatch({ type: SIGNUP_FAILURE, payload: { error: error.message } });
     console.log(error);
   } finally {
     loaderOff();
@@ -48,16 +56,19 @@ export const login = (authData, loaderOff) => async (dispatch) => {
     if (response.status === 200) {
       dispatch({
         type: LOGIN_SUCCESS,
-        payload: { step: 3, userData: authData.email },
+        payload: { step: 3, userData: { email: response.data.email } },
       });
-    } else if (response.status === 404) {
-      // Phone not found
-      dispatch({ type: LOGIN_FAILURE, payload: { error: data.message } });
-    } else {
-      throw new Error("Error While generating OTP");
     }
   } catch (error) {
-    dispatch({ type: LOGIN_FAILURE, payload: { error: error.message } });
+    if (error.response.status === 404) {
+      // Phone not found
+      dispatch({
+        type: LOGIN_FAILURE,
+        payload: { error: "Phone Not Found, First Register!" },
+      });
+    } else {
+      dispatch({ type: LOGIN_FAILURE, payload: { error: error.message } });
+    }
     console.log(error);
   } finally {
     loaderOff();
@@ -67,20 +78,11 @@ export const login = (authData, loaderOff) => async (dispatch) => {
 export const verifyOtp = (data, loaderOff) => async (dispatch) => {
   try {
     const response = await api.verifyOtp(data);
-    if (response.status === 404) {
-      const { message } = response.data;
-      dispatch({
-        type: VERIFY_OTP_FAILURE,
-        payload: { error: message },
-      });
-    } else if (response.status === 400) {
-      // Invalid OTP
-      const { message } = response.data;
-      dispatch({ type: VERIFY_OTP_FAILURE, payload: { error: message } });
-    } else if (response.status === 200) {
+    if (response.status === 200) {
       const { data } = response;
       localStorage.setItem("token", data.token); // set the token
       localStorage.setItem("id", data._id); // set user ID here
+      console.log("Verfied Successfully");
       // after verification
       dispatch({
         type: VERIFY_OTP_SUCCESS,
@@ -88,7 +90,20 @@ export const verifyOtp = (data, loaderOff) => async (dispatch) => {
       });
     }
   } catch (error) {
-    dispatch({ type: VERIFY_OTP_FAILURE, payload: { error: error.message } });
+    if (error.response.status === 404) {
+      dispatch({
+        type: VERIFY_OTP_FAILURE,
+        payload: { error: error.message },
+      });
+    } else if (error.response.status === 400) {
+      // Invalid OTP
+      dispatch({
+        type: VERIFY_OTP_FAILURE,
+        payload: { error: "Invalid OTP!" },
+      });
+    } else {
+      dispatch({ type: VERIFY_OTP_FAILURE, payload: { error: error.message } });
+    }
     console.log(error);
   } finally {
     loaderOff();
@@ -98,16 +113,18 @@ export const verifyOtp = (data, loaderOff) => async (dispatch) => {
 export const resendOtp = (data, loaderoff) => async (dispatch) => {
   try {
     const response = await api.resendOtp(data);
-    if (response.status === 403 || response.status === 500) {
-      dispatch({
-        type: VERIFY_OTP_FAILURE,
-        payload: { error: response.data.message },
-      });
-    } else if (response.status === 200) {
+    if (response.status === 200) {
       dispatch({ type: RESEND_OTP_SUCCESS });
     }
   } catch (error) {
-    dispatch({ type: VERIFY_OTP_FAILURE, payload: { error: error.message } });
+    if (error.response.status === 403 || error.response.status === 500) {
+      dispatch({
+        type: VERIFY_OTP_FAILURE,
+        payload: { error: error.message },
+      });
+    } else {
+      dispatch({ type: VERIFY_OTP_FAILURE, payload: { error: error.message } });
+    }
     console.log(error);
   } finally {
     loaderoff();

@@ -11,8 +11,9 @@
 }
 
 body {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
   color: #fff;
   font-family: "DM Sans", sans-serif;
   font-size: 1.25rem;
