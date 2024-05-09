@@ -40,6 +40,7 @@ const Navbar = () => {
         <p className={`${styles.date}`}>20th May-22th May</p>
         <div className={`${styles.btnBox}`}>
           <Button type={"small"} text={"Download App"} action={() => {}} />
+          <Button type={"small"} text={"Register Here"} action={() => {}} />
         </div>
       </div>
     </>
