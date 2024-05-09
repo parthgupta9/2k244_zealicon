@@ -2,7 +2,6 @@ import {
   LOGIN_FAILURE,
   LOGIN_SUCCESS,
   LOGOUT,
-  PAYMENT_SUCCESS,
   RESEND_OTP_SUCCESS,
   SIGNUP_FAILURE,
   SIGNUP_SUCCESS,
@@ -12,7 +11,7 @@ import {
 
 const initialState = {
   isAuthenticated: false,
-  userData: [],
+  userData: {},
   error: null,
   step: 1,
 };
@@ -22,10 +21,9 @@ const authReducer = (state = initialState, action) => {
     case LOGIN_SUCCESS:
       return {
         ...state,
-        userData: [], // { email: "",  phone:""}
+        userData: action.payload.userData, // { email: "",  phone:""}
         isAuthenticated: false, // Signup pe authentication true nhi karna but otp verified pe true karna hai
         step: action.payload.step,
-        zealId: null,
         error: null,
       };
     case SIGNUP_FAILURE:
@@ -33,25 +31,22 @@ const authReducer = (state = initialState, action) => {
     case VERIFY_OTP_FAILURE:
       return {
         ...state,
-        userData: [],
+        userData: {},
+        step: action.payload.step || state.step,
         isAuthenticated: false,
-        error: action.payload.text,
+        error: action.payload.error,
       };
     case VERIFY_OTP_SUCCESS:
-    case PAYMENT_SUCCESS:
-      localStorage.setItem("userData", JSON.stringify({ ...action?.payload }));
       return {
         ...state,
-        userData: action.payload.userData || [],
+        userData: action.payload.userData,
         isAuthenticated: true,
         state: action.payload.step,
-        zealId: action.payload.zealId,
         error: null,
       };
     case RESEND_OTP_SUCCESS:
       return {
         ...state,
-        userData: [],
         isAuthenticated: false,
         error: null,
       };
@@ -59,7 +54,7 @@ const authReducer = (state = initialState, action) => {
       localStorage.clear();
       return {
         ...state,
-        userData: [],
+        userData: {},
         isAuthenticated: false,
         error: null,
       };

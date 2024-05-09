@@ -1,15 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Pay.module.css";
 import payBtn from "./assets/payBtn.svg";
 import Loader from "../../components/Loader/Loader";
+import { useDispatch } from "react-redux";
+import { fetchZealId } from "../../api";
+import { payment } from "../../actions/payment";
 
 const Pay = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
+  const loaderOff = () => setIsLoading(false);
 
   const handleSubmit = () => {
     setIsLoading(true);
-    // dispatch(purchase(userData, loaderOff))
+    dispatch(payment(loaderOff))
   };
+
+  useEffect(async () => {
+    setIsLoading(true);
+    dispatch(fetchZealId(loaderOff));
+  }, []);
+
   return (
     <div className={styles.formCont}>
       <div className={styles.header}>

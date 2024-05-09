@@ -29,3 +29,11 @@ export const signUp = (formData) => {
 export const logIn = (authData) => API.post("/api/auth/login", authData);
 export const verifyOtp = (data) => API.post("/api/auth/verify-otp", data);
 export const resendOtp = (data) => API.post("/api/auth/login", data);
+
+// Payment
+export const getPaymentKey = () => API.get("/api/payment/get-key");
+export const checkout = (data) => API.post("/api/payment/checkout", data);
+
+// Zeal Id
+export const fetchZealId = (jwtToken) =>
+  API.get(`/api/payment/get-zeal-id/${jwtToken}`);

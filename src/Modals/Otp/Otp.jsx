@@ -9,15 +9,19 @@ import OtpInput from "../../components/Loader/OtpInput/OtpInput";
 const Otp = () => {
   const dispatch = useDispatch();
   const location = useLocation();
-  const { isAuthenticated, error } = useSelector((state) => state.authReducer);
-  const email = location.state;
+  const {
+    isAuthenticated,
+    error,
+    userData: { email },
+  } = useSelector((state) => state.authReducer);
   const [isLoading, setIsLoading] = useState(false);
   const length = 6;
   const [otp, setOtp] = useState(new Array(length).fill(""));
+  const loaderOff = () => setIsLoading(false);
 
   const handleSubmit = (e) => {
     const data = {
-      email: "",
+      email: email,
       otp: otp.join(""),
     };
     // console.log("Otp", data);
@@ -27,11 +31,12 @@ const Otp = () => {
       return;
     }
     setIsLoading(true);
-    dispatch(verifyOtp({ email, otp }));
+    dispatch(verifyOtp({ email, otp }, loaderOff));
   };
 
   const resendOtp = async () => {
-    dispatch(resendOtp({ email }));
+    setIsLoading(true);
+    dispatch(resendOtp({ email }, loaderOff));
     if (error == null) {
       alert("We have sent the OTP, check your mail!");
     }

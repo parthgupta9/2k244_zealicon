@@ -9,9 +9,8 @@ import Login from "../../Modals/Login/Login";
 import Pay from "../../Modals/Pay/Pay";
 
 const Modal = ({ setIsModalOpen }) => {
-  const { isAuthenticated, error, step } = useSelector(
-    (state) => state.authReducer
-  );
+  const { error, step } = useSelector((state) => state.authReducer);
+  const { isPaymentDone } = useSelector((state) => state.paymentReducer);
   return (
     <div className={styles.wrap}>
       <div className={styles.container}>
@@ -62,6 +61,7 @@ const Modal = ({ setIsModalOpen }) => {
             <Zeal />
           )}
         </div>
+        {isPaymentDone && <div>Payment Done Successfully!</div>}
       </div>
     </div>
   );
