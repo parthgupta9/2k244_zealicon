@@ -18,7 +18,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <div className={`${styles.container}`}> 
+      <div className={`${styles.container}`}>
         <img
           className={`${styles.image}`}
           src={windowSize.width <= 900 ? bg_phone : bg}
@@ -39,8 +39,7 @@ const Navbar = () => {
       <div className={`${styles.register}`}>
         <p className={`${styles.date}`}>20th May-22th May</p>
         <div className={`${styles.btnBox}`}>
-          <button className={`${styles.button}`}>Register Here</button>
-          <button className={`${styles.button}`}>Download Here</button>
+          <Button type={"small"} text={"Download App"} action={() => {}} />
         </div>
       </div>
     </>

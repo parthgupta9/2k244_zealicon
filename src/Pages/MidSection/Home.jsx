@@ -6,6 +6,8 @@ import hdfc from '../../assets/hdfc.png'
 import xoxoday from '../../assets/xoxoday.png'
 import honda from '../../assets/honda.png'
 
+import Button from "../../components/Button/Button";
+
 const Home = () => {
     const [btn, setBtn] =useState(false);
 

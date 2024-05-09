@@ -3,6 +3,8 @@
   font-family: rabu-kliwon;
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: max-content;
 }
 
 .buttonCont svg {
@@ -18,4 +20,5 @@
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
+  white-space: nowrap;
 }

@@ -35,6 +35,7 @@
     line-height: 28.8px;
     letter-spacing: 0.02em;
     cursor: pointer;
+    font-family: "DM Sans";
 }
 .register{
     position: absolute;
@@ -47,13 +48,15 @@
 .date{
     margin-top: -15.5%;
     color: rgba(126, 242, 246, 1);
-    font-family: Rabu Kilwon;
+    font-family: rabu-kliwon;
     font-size: 37px;
     font-weight: 400;
     line-height: 36.26px;
 }
 .btnBox{
     margin-top: 36%;
+    display: flex;
+    justify-content: center;
 }
 .btnBox button{
     margin: 0px 18px;
