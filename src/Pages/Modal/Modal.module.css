@@ -54,6 +54,25 @@
   height: 100%;
 }
 
+.wrapPayment {
+  display: flex;
+  width: 100%;
+  background: rgba(179, 226, 37, 0.12);
+  height: 2.5625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+.wrapPayment span {
+  color: #53ffa2;
+  text-align: center;
+  font-family: "DM Sans";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 2.4rem */
+}
 /* 75 rem's */
 @media screen and (max-width: 1220px) {
   .innerCont {
@@ -85,7 +104,7 @@
     gap: 2.5rem;
     padding: 1.5rem 1rem;
   }
-  .container{
+  .container {
     max-height: 60rem;
   }
 }

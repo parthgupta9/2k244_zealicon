@@ -70,7 +70,7 @@ const Modal = ({ setIsModalOpen }) => {
             <Zeal />
           )}
         </div>
-        {isPaymentDone && <div>Payment Done Successfully!</div>}
+        {isPaymentDone && <div className={styles.wrapPayment}><span>Payment Done Successfully!</span></div>}
       </div>
     </div>
   );

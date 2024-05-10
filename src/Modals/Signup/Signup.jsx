@@ -9,6 +9,7 @@ import Loader from "../../components/Loader/Loader";
 import camera from "./assets/camera.svg";
 import next from "./assets/next.svg";
 import { LOGIN_STARTED } from "../../actions/actionType/actionType";
+import { toast } from "react-toastify";
 
 const Signup = ({ setModal }) => {
   const dispatch = useDispatch();
@@ -54,7 +55,7 @@ const Signup = ({ setModal }) => {
         id_card: photo,
       };
       console.log("Form DATA", data);
-      dispatch(signup(data, loaderoff));
+      dispatch(signup(data, loaderoff, toast));
     } catch (error) {
       console.log("Error Occured");
     }

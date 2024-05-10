@@ -4,6 +4,7 @@ import payBtn from "./assets/payBtn.svg";
 import Loader from "../../components/Loader/Loader";
 import { useDispatch } from "react-redux";
 import { doPayment} from "../../actions/payment";
+import { toast } from "react-toastify";
 
 const Pay = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -12,7 +13,7 @@ const Pay = () => {
 
   const handleSubmit = () => {
     setIsLoading(true);
-    dispatch(doPayment(loaderOff))
+    dispatch(doPayment(loaderOff, toast))
   };
 
   return (

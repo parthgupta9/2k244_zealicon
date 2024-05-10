@@ -11,13 +11,13 @@ import {
 } from "./actionType/actionType";
 
 // Action creators
-export const signup = (authData, loaderOff) => async (dispatch) => {
+export const signup = (authData, loaderOff, toast) => async (dispatch) => {
   try {
     const response = await api.signUp(authData);
     const { data } = response;
 
     if (response.status === 201) {
-      // Set User Data here for email
+      toast.success(`OTP sent to ${authData.email}`);
       console.log("AuthData.email", authData.email);
       dispatch({
         type: SIGNUP_SUCCESS,
@@ -50,10 +50,11 @@ export const signup = (authData, loaderOff) => async (dispatch) => {
   }
 };
 
-export const login = (authData, loaderOff) => async (dispatch) => {
+export const login = (authData, loaderOff, toast) => async (dispatch) => {
   try {
     const response = await api.logIn(authData);
     if (response.status === 200) {
+      toast.success(`OTP sent to ${response.data.email}`);
       dispatch({
         type: LOGIN_SUCCESS,
         payload: { step: 3, userData: { email: response.data.email } },
@@ -62,6 +63,7 @@ export const login = (authData, loaderOff) => async (dispatch) => {
   } catch (error) {
     if (error.response.status === 404) {
       // Phone not found
+      toast.error("Please Register First!");
       dispatch({
         type: SIGNUP_STARTED,
         payload: { error: "Phone Not Found, First Register!", step: 2 },
@@ -75,7 +77,7 @@ export const login = (authData, loaderOff) => async (dispatch) => {
   }
 };
 
-export const verifyOtp = (data, loaderOff) => async (dispatch) => {
+export const verifyOtp = (data, loaderOff, toast) => async (dispatch) => {
   try {
     const response = await api.verifyOtp(data);
     if (response.status === 200) {
@@ -83,7 +85,7 @@ export const verifyOtp = (data, loaderOff) => async (dispatch) => {
       localStorage.setItem("token", data.token); // set the token
       localStorage.setItem("id", data._id); // set user ID here
       console.log("Verfied Successfully");
-
+      toast.success("Verified Sucessfully!");
       // Fetch Zeal Id here
       try {
         console.log("Fetch Zeal Id starter");
@@ -129,6 +131,7 @@ export const verifyOtp = (data, loaderOff) => async (dispatch) => {
       });
     } else if (error.response.status === 400) {
       // Invalid OTP
+      toast.error("Invalid OTP!")
       dispatch({
         type: VERIFY_OTP_FAILURE,
         payload: { error: "Invalid OTP!" },

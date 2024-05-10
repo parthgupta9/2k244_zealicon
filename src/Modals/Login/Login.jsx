@@ -6,6 +6,7 @@ import styles from "./Login.module.css";
 import nextBtn from "./assets/nextBtn.svg";
 import Loader from "../../components/Loader/Loader";
 import { SIGNUP_STARTED } from "../../actions/actionType/actionType";
+import {toast } from "react-toastify";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -23,10 +24,12 @@ const Login = () => {
     if (phone.trim < 10) {
       return;
     }
-    dispatch(login({ phone }, loaderOff));
+    dispatch(login({ phone }, loaderOff, toast ));
   };
 
   return (
+    <>
+    
     <div className={styles.formCont}>
       <h2>Welcome Back</h2>
       <div className={styles.formik}>
@@ -69,6 +72,7 @@ const Login = () => {
         </form>
       </div>
     </div>
+    </>
   );
 };
 

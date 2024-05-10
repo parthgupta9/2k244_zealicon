@@ -6,6 +6,7 @@ import submitBtn from "./assets/submit.svg";
 import Loader from "../../components/Loader/Loader";
 import OtpInput from "../../components/Loader/OtpInput/OtpInput";
 import { verifyOtp } from "../../actions/auth";
+import { toast } from "react-toastify";
 
 const Otp = () => {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ const Otp = () => {
       return;
     }
     setIsLoading(true);
-    dispatch(verifyOtp(data, loaderOff));
+    dispatch(verifyOtp(data, loaderOff, toast));
   };
 
   const resendOtp = async () => {

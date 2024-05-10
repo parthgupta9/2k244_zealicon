@@ -24,6 +24,7 @@ export const resendOtp = (data) => API.post("/api/auth/login", data);
 // Payment
 export const getPaymentKey = () => API.get("/api/payment/get-key");
 export const checkout = (data) => API.post("/api/payment/checkout", data);
+export const paymentVerification = (paymentData, ID) => API.post(`/api/payment/payment-verification/${ID}`, paymentData)
 
 // Zeal Id
 export const fetchZealId = (jwtToken) =>
