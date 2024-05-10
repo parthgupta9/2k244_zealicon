@@ -1,8 +1,10 @@
 import * as api from "../api";
 import {
+  FETCH_ZEAL_ID_SUCCESS,
   LOGIN_FAILURE,
   LOGIN_SUCCESS,
   SIGNUP_FAILURE,
+  SIGNUP_STARTED,
   SIGNUP_SUCCESS,
   VERIFY_OTP_FAILURE,
   VERIFY_OTP_SUCCESS,
@@ -11,7 +13,6 @@ import {
 // Action creators
 export const signup = (authData, loaderOff) => async (dispatch) => {
   try {
-    // authData is coming in multipart/form data format make sure to decode it then set the email
     const response = await api.signUp(authData);
     const { data } = response;
 
@@ -21,7 +22,7 @@ export const signup = (authData, loaderOff) => async (dispatch) => {
       dispatch({
         type: SIGNUP_SUCCESS,
         payload: { step: 3, userData: { email: authData.email } },
-      }); // 3rd step for OTP
+      });
     }
   } catch (error) {
     if (error.response.status === 404) {
@@ -33,9 +34,8 @@ export const signup = (authData, loaderOff) => async (dispatch) => {
       dispatch({
         type: SIGNUP_FAILURE,
         payload: {
-          error: "Already Registered, Login Instead!",
+          error: "Already Registered Phone, Login Instead!",
           step: 1,
-          userData: { email: authData.email },
         },
       });
     } else {
@@ -63,8 +63,8 @@ export const login = (authData, loaderOff) => async (dispatch) => {
     if (error.response.status === 404) {
       // Phone not found
       dispatch({
-        type: LOGIN_FAILURE,
-        payload: { error: "Phone Not Found, First Register!" },
+        type: SIGNUP_STARTED,
+        payload: { error: "Phone Not Found, First Register!", step: 2 },
       });
     } else {
       dispatch({ type: LOGIN_FAILURE, payload: { error: error.message } });
@@ -83,11 +83,43 @@ export const verifyOtp = (data, loaderOff) => async (dispatch) => {
       localStorage.setItem("token", data.token); // set the token
       localStorage.setItem("id", data._id); // set user ID here
       console.log("Verfied Successfully");
-      // after verification
-      dispatch({
-        type: VERIFY_OTP_SUCCESS,
-        payload: { step: 4 },
-      });
+
+      // Fetch Zeal Id here
+      try {
+        console.log("Fetch Zeal Id starter");
+        let responseForZeal = await api.fetchZealId(data.token);
+        console.log("Response", responseForZeal);
+        if (responseForZeal.status === 200) {
+          dispatch({
+            type: FETCH_ZEAL_ID_SUCCESS,
+            payload: { zealId: responseForZeal.data.zeal_id, step: 5 },
+          });
+        }
+      } catch (error) {
+        if (error.response.status === 401) {
+          dispatch({
+            type: SIGNUP_FAILURE,
+            payload: {
+              error: "Unauthorized Access",
+              step: 2,
+            },
+          });
+          localStorage.clear();
+          return;
+        } else if (error.response.status === 404) {
+          dispatch({
+            type: VERIFY_OTP_SUCCESS,
+            payload: { step: 4 }, // payment page - redirect - no zeal id found
+          });
+        } else {
+          dispatch({
+            type: VERIFY_OTP_FAILURE,
+            payload: {
+              error: "Don't Pay, Contact Developers!!!",
+            },
+          });
+        }
+      }
     }
   } catch (error) {
     if (error.response.status === 404) {

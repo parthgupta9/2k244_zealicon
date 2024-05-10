@@ -8,25 +8,24 @@ import { fetchZealId } from "./zeal";
 const SERVER_URL = "http://localhost:8181";
 
 // Action Creators
-export const payment = (loaderOff) => async (dispatch) => {
+export const doPayment = (loaderOff) => async (dispatch) => {
   try {
+    const token = localStorage.getItem("token");
+    const ID = localStorage.getItem("id");
+    if (!token || !ID) {
+      console.log("Logging out");
+      dispatch({ type: LOGOUT });
+      return;
+    }
+
     // Get Key - get
     const {
       data: { key },
     } = await api.getPaymentKey();
 
-    // Place Order - Post
-    const token = localStorage.getItem("token");
-    const ID = localStorage.getItem("id");
-    if (!token || !ID) {
-      dispatch({ type: LOGOUT });
-      throw new Error("Verification Failed! Login again");
-    }
-
     const {
       data: { order },
     } = await api.checkout({ jwtToken: token });
-
     const options = {
       key,
       amount: order.amount,
@@ -48,11 +47,45 @@ export const payment = (loaderOff) => async (dispatch) => {
         color: "#121212",
       },
     };
-
+    console.log(Window);
     const razor = new window.Razorpay(options);
-
-    razor.on("payment.success", function (response) {
-      dispatch({ type: PAYMENT_SUCCESS });
+    console.log("Razor", razor);
+    razor.on("payment.success", async function (response) {
+      console.log("Response",response)
+      try {
+        let responseForZeal = await api.fetchZealId(token);
+        if (responseForZeal.status === 200) {
+          dispatch({
+            type: FETCH_ZEAL_ID_SUCCESS,
+            payload: { zealId: responseForZeal.data.zeal_id, step: 5 },
+          });
+        }
+      } catch (error) {
+        if (error.response.status === 401) {
+          dispatch({
+            type: SIGNUP_FAILURE,
+            payload: {
+              error: "Unauthorized Access",
+              step: 2,
+            },
+          });
+          localStorage.clear();
+          return;
+        } else if (error.response.status === 404) {
+          dispatch({
+            type: VERIFY_OTP_SUCCESS,
+            payload: { step: 4 }, // payment page - redirect - no zeal id found
+          });
+        } else {
+          dispatch({
+            type: VERIFY_OTP_FAILURE,
+            payload: {
+              error: "Don't Pay, Contact Developers!!!",
+            },
+          });
+        }
+      }
+      dispatch({ type: PAYMENT_SUCCESS }); // step 5 pe le ja to show the zeal ID
     });
     razor.on("payment.error", function (error) {
       dispatch({ type: PAYMENT_FAILURE, payload: { error: error.message } });

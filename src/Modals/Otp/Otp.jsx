@@ -10,8 +10,8 @@ import { verifyOtp } from "../../actions/auth";
 const Otp = () => {
   const dispatch = useDispatch();
   const location = useLocation();
-  const { isAuthenticated, error, userData } = useSelector(
-    (state) => state.authReducer
+  const { error, userData } = useSelector(
+    (state) => state.allReducers
   );
   const [isLoading, setIsLoading] = useState(false);
   const length = 6;
@@ -34,7 +34,7 @@ const Otp = () => {
 
   const resendOtp = async () => {
     setIsLoading(true);
-    dispatch(resendOtp({ email }, loaderOff));
+    dispatch(resendOtp({ email : userData.email }, loaderOff));
     if (error == null) {
       alert("We have sent the OTP, check your mail!");
     }

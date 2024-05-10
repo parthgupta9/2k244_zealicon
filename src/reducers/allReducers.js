@@ -1,9 +1,15 @@
 import {
+  FETCH_ZEAL_ID_FAILURE,
+  FETCH_ZEAL_ID_SUCCESS,
   LOGIN_FAILURE,
+  LOGIN_STARTED,
   LOGIN_SUCCESS,
   LOGOUT,
+  PAYMENT_FAILURE,
+  PAYMENT_SUCCESS,
   RESEND_OTP_SUCCESS,
   SIGNUP_FAILURE,
+  SIGNUP_STARTED,
   SIGNUP_SUCCESS,
   VERIFY_OTP_FAILURE,
   VERIFY_OTP_SUCCESS,
@@ -13,10 +19,19 @@ const initialState = {
   isAuthenticated: false,
   userData: {},
   error: null,
-  step: 2,
+  zealId: null,
+  step: 1,
+  isPaymentDone: null,
 };
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
+    case SIGNUP_STARTED:
+    case LOGIN_STARTED:
+      return {
+        ...state,
+        step: action.payload.step,
+        error: action.payload.error,
+      };
     case SIGNUP_SUCCESS:
     case LOGIN_SUCCESS:
       return {
@@ -70,6 +85,37 @@ const authReducer = (state = initialState, action) => {
         isAuthenticated: false,
         error: null,
       };
+
+    // Fetch Zeal Id Reducers
+    case FETCH_ZEAL_ID_SUCCESS:
+      console.log("FETCH_ZEAL_ID_SUCCESS", action.payload);
+      return {
+        ...state,
+        zealId: action.payload.zealId,
+        step: action.payload.step,
+        error: null,
+      };
+    case FETCH_ZEAL_ID_FAILURE:
+      return {
+        ...state,
+        zealId: null,
+        error: action.payload.error,
+      };
+
+    // Payment
+    case PAYMENT_SUCCESS:
+      return {
+        ...state,
+        isPaymentDone: true,
+        error: null,
+      };
+    case PAYMENT_FAILURE:
+      return {
+        ...state,
+        isPaymentDone: false,
+        error: action.payload.error,
+      };
+
     default:
       return state;
   }

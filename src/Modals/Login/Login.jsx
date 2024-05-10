@@ -5,10 +5,10 @@ import { login } from "../../actions/auth";
 import styles from "./Login.module.css";
 import nextBtn from "./assets/nextBtn.svg";
 import Loader from "../../components/Loader/Loader";
+import { SIGNUP_STARTED } from "../../actions/actionType/actionType";
 
 const Login = () => {
   const dispatch = useDispatch();
-  const { isAuthenticated, error } = useSelector((state) => state.authReducer);
   const [phone, setPhone] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const loaderOff = () => setIsLoading(false);
@@ -56,7 +56,14 @@ const Login = () => {
               </span>
             </button>
             <p>
-              Create an account! <Link to="/signup">Signup</Link>
+              Create an account!{" "}
+              <span
+                onClick={() =>
+                  dispatch({ type: SIGNUP_STARTED, payload: { step: 2 } })
+                }
+              >
+                Signup
+              </span>
             </p>
           </div>
         </form>

@@ -8,11 +8,10 @@ import styles from "./Signup.module.css";
 import Loader from "../../components/Loader/Loader";
 import camera from "./assets/camera.svg";
 import next from "./assets/next.svg";
+import { LOGIN_STARTED } from "../../actions/actionType/actionType";
 
 const Signup = ({ setModal }) => {
   const dispatch = useDispatch();
-  const location = useLocation();
-  const { isAuthenticated, error } = useSelector((state) => state.authReducer);
   const [isLoading, setIsLoading] = useState(false);
   const [step, setStep] = useState(1);
   const [image, setImage] = useState(null);
@@ -254,7 +253,14 @@ const Signup = ({ setModal }) => {
                     </span>
                   </button>
                   <p>
-                    Already have an account?<Link to="/login">Login</Link>
+                    Already have an account?
+                    <span
+                      onClick={() =>
+                        dispatch({ type: LOGIN_STARTED, payload: { step: 1 } })
+                      }
+                    >
+                      Login
+                    </span>
                   </p>
                 </div>
               </Form>

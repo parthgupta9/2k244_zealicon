@@ -3,7 +3,7 @@ import styles from "./Zeal.module.css";
 import { useSelector } from "react-redux";
 
 const Zeal = () => {
-  const { zealId } = useSelector((state) => state.zealReducer);
+  const { zealId } = useSelector((state) => state.allReducers);
   return (
     <div className={styles.formCont}>
       <p>Your Zeal ID is</p>

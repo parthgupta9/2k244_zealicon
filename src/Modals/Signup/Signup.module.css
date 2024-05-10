@@ -90,7 +90,7 @@
   font-weight: 400;
   line-height: 160%; /* 1.4rem */
 }
-.btnwrap a {
+.btnwrap p span {
   color: #8eeef9;
   font-family: "DM Sans";
   font-size: 0.875rem;

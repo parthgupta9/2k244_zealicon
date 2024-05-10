@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./Modal.module.css";
 import ghost from "./assets/ghost.svg";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Signup from "../../Modals/Signup/Signup";
 import Zeal from "../../Modals/Zeal/Zeal";
 import Otp from "../../Modals/Otp/Otp";
 import Login from "../../Modals/Login/Login";
 import Pay from "../../Modals/Pay/Pay";
+import { fetchZealId } from "../../actions/zeal";
 
 const Modal = ({ setIsModalOpen }) => {
-  const { error, step } = useSelector((state) => state.authReducer);
-  const { isPaymentDone } = useSelector((state) => state.paymentReducer);
+  const dispatch = useDispatch();
+  const { error, step, isPaymentDone } = useSelector(
+    (state) => state.allReducers
+  );
+  useEffect(() => {
+    const fetchId = async () => {
+      dispatch(fetchZealId());
+    };
+    fetchId();
+  }, []);
   return (
     <div className={styles.wrap}>
       <div className={styles.container}>

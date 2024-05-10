@@ -3,8 +3,7 @@ import styles from "./Pay.module.css";
 import payBtn from "./assets/payBtn.svg";
 import Loader from "../../components/Loader/Loader";
 import { useDispatch } from "react-redux";
-import { fetchZealId } from "../../api";
-import { payment } from "../../actions/payment";
+import { doPayment} from "../../actions/payment";
 
 const Pay = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -13,13 +12,8 @@ const Pay = () => {
 
   const handleSubmit = () => {
     setIsLoading(true);
-    dispatch(payment(loaderOff))
+    dispatch(doPayment(loaderOff))
   };
-
-  useEffect(async () => {
-    setIsLoading(true);
-    dispatch(fetchZealId(loaderOff));
-  }, []);
 
   return (
     <div className={styles.formCont}>

@@ -1,31 +1,46 @@
 import * as api from "../api";
 import {
-  FETCH_ZEAL_ID_FAILURE,
   FETCH_ZEAL_ID_SUCCESS,
+  LOGIN_FAILURE,
+  LOGOUT,
 } from "./actionType/actionType";
 
-export const fetchZealId = (loaderOff) => async (dispatch) => {
+export const fetchZealId = () => async (dispatch) => {
   try {
-    const jwtToken = localStorage.getItem("token");
-    if (!jwtToken) return;
-    const response = await api.fetchZealId(jwtToken);
-    if (response.status === 401) {
-      // User authentication failed
-      return;
-    } else if (response.status === 404) {
-      dispatch({ type: FETCH_ZEAL_ID_FAILURE, error: "Payment is not done!" });
-    } else if (response.status === 200) {
+    console.log("Fetch Zeal Id Started")
+    const token = localStorage.getItem("token");
+    if (!token) return;
+    let response = await api.fetchZealId(token);
+    if (response.status === 200) {
+      console.log("ZEALID", response.data.zeal_id)
       dispatch({
         type: FETCH_ZEAL_ID_SUCCESS,
         payload: { zealId: response.data.zeal_id, step: 5 },
       });
     }
   } catch (error) {
-    dispatch({
-      type: FETCH_ZEAL_ID_FAILURE,
-      payload: { error: error.message },
-    });
-  } finally {
-    loaderOff();
+    if (error.response.status === 401) {
+      localStorage.clear();
+      dispatch({
+        type: SIGNUP_FAILURE,
+        payload: {
+          error: "Unauthorized Access",
+          step: 2,
+        },
+      });
+      return;
+    } else if (error.response.status === 404) {
+      dispatch({
+        type: LOGIN_FAILURE,
+        payload: { step: 1 }, // login
+      });
+    } else {
+      dispatch({
+        type: LOGOUT,
+        payload: {
+          error: "Don't Pay, Contact Developers!!!",
+        },
+      });
+    }
   }
 };
