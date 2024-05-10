@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Modal.module.css";
 import ghost from "./assets/ghost.svg";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,19 +7,25 @@ import Zeal from "../../Modals/Zeal/Zeal";
 import Otp from "../../Modals/Otp/Otp";
 import Login from "../../Modals/Login/Login";
 import Pay from "../../Modals/Pay/Pay";
-import { fetchZealId } from "../../actions/zeal";
 
 const Modal = ({ setIsModalOpen }) => {
-  const dispatch = useDispatch();
   const { error, step, isPaymentDone } = useSelector(
     (state) => state.allReducers
   );
+
+  const [displayError, setDisplayError] = useState(error);
+
   useEffect(() => {
-    const fetchId = async () => {
-      dispatch(fetchZealId());
-    };
-    fetchId();
-  }, []);
+    if (error) {
+      setDisplayError(error);
+      const timeout = setTimeout(() => {
+        setDisplayError(null);
+      }, 3000);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [error]);
+
   return (
     <div className={styles.wrap}>
       <div className={styles.container}>
@@ -42,7 +48,7 @@ const Modal = ({ setIsModalOpen }) => {
             </g>
           </svg>
         </button>
-        {error && (
+        {displayError && (
           <p
             style={{
               color: "red",
@@ -51,7 +57,7 @@ const Modal = ({ setIsModalOpen }) => {
               paddingTop: "0.8rem",
             }}
           >
-            {error}
+            {displayError}
           </p>
         )}
         <div className={styles.innerCont}>
@@ -70,7 +76,11 @@ const Modal = ({ setIsModalOpen }) => {
             <Zeal />
           )}
         </div>
-        {isPaymentDone && <div className={styles.wrapPayment}><span>Payment Done Successfully!</span></div>}
+        {isPaymentDone && (
+          <div className={styles.wrapPayment}>
+            <span>Payment Done Successfully!</span>
+          </div>
+        )}
       </div>
     </div>
   );

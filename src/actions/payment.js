@@ -5,7 +5,6 @@ import {
   PAYMENT_SUCCESS,
 } from "./actionType/actionType";
 import { fetchZealId } from "./zeal";
-const SERVER_URL = "http://localhost:8181";
 
 // Action Creators
 export const doPayment = (loaderOff, toast) => async (dispatch) => {

@@ -15,7 +15,7 @@ export const fetchZealId = () => async (dispatch) => {
       console.log("ZEALID", response.data.zeal_id)
       dispatch({
         type: FETCH_ZEAL_ID_SUCCESS,
-        payload: { zealId: response.data.zeal_id, step: 5 },
+        payload: { zealId: response.data.zeal_id, step: 5, isAuthenticated : true },
       });
     }
   } catch (error) {

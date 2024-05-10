@@ -84,6 +84,8 @@ const authReducer = (state = initialState, action) => {
         userData: {},
         isAuthenticated: false,
         error: null,
+        zealId: null,
+        step: 1,
       };
 
     // Fetch Zeal Id Reducers
@@ -93,6 +95,7 @@ const authReducer = (state = initialState, action) => {
         ...state,
         zealId: action.payload.zealId,
         step: action.payload.step,
+        isAuthenticated: action.payload.isAuthenticated,
         error: null,
       };
     case FETCH_ZEAL_ID_FAILURE:

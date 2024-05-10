@@ -129,7 +129,14 @@ const Signup = ({ setModal }) => {
                     <img src={next} alt="" />
                   </button>
                   <p>
-                    Already have an account?<Link to="/login">Login</Link>
+                    Already have an account?
+                    <span
+                      onClick={() =>
+                        dispatch({ type: LOGIN_STARTED, payload: { step: 1 } })
+                      }
+                    >
+                      Login
+                    </span>
                   </p>
                 </div>
               </Form>

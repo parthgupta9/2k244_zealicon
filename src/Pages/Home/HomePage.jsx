@@ -1,19 +1,17 @@
 import React, { useState } from "react";
-import Home from "../MidSection/Home";
-import Navbar from "../Landing/Navbar";
+import MidSection from "../MidSection/MidSection";
+import Navbar from "../Navbar/Navbar";
 import Offers from "../Offers/offers";
 import Footer from "../Footer/footer";
 import Modal from "../Modal/Modal";
-{
-  /* <button onClick={() => setIsModalOpen(true)}>Register Here</button> */
-}
+
 const HomePage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <>
       {isModalOpen && <Modal setIsModalOpen={setIsModalOpen} />}
-      <Navbar setIsModalOpen={setIsModalOpen}/>
-      <Home />
+      <Navbar setIsModalOpen={setIsModalOpen} />
+      <MidSection />
       <Offers />
       <Footer />
     </>
