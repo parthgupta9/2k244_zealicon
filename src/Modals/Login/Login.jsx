@@ -8,7 +8,7 @@ import Loader from "../../components/Loader/Loader";
 import { SIGNUP_STARTED } from "../../actions/actionType/actionType";
 import { toast } from "react-toastify";
 
-const phoneRegex = /^[6-9]\d{9}$/;
+const phoneRegex = /^(\+?91|91)?[6789]\d{9}$/;
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -51,7 +51,10 @@ const Login = () => {
               </div>
             </div>
             <div className={styles.btnwrap}>
-              <button type="submit" disabled={isLoading}>
+              <button
+                type="submit"
+                disabled={isLoading || !phoneRegex.test(phone.trim())}
+              >
                 <span>
                   {isLoading ? (
                     <div className={styles.loaderWrap}>

@@ -62,7 +62,7 @@ const Modal = ({ setIsModalOpen }) => {
         )}
         <div className={styles.innerCont}>
           <div className={styles.imgCont}>
-            <img src={ghost} alt="ghost" />
+            <img src={ghost} className={styles.image} alt="ghost" />
           </div>
           {step === 1 ? (
             <Login />

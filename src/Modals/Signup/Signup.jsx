@@ -72,6 +72,8 @@ const Signup = ({ setModal }) => {
               phone: formData.phone,
             }}
             validationSchema={validationSchema1}
+            validateOnChange={true}
+            validateOnBlur={true}
             onSubmit={handleSubmit}
           >
             {(formik) => (
@@ -85,6 +87,13 @@ const Signup = ({ setModal }) => {
                       name="name"
                       placeholder="John Doe"
                       autoComplete="off"
+                      validate={(value) => {
+                        try {
+                          validationSchema1.fields.name.validateSync(value);
+                        } catch (error) {
+                          return error.message;
+                        }
+                      }}
                     />
                   </div>
                   <ErrorMessage
@@ -102,6 +111,13 @@ const Signup = ({ setModal }) => {
                       name="email"
                       placeholder="Default@gmail.com"
                       autoComplete="off"
+                      validate={(value) => {
+                        try {
+                          validationSchema1.fields.email.validateSync(value);
+                        } catch (error) {
+                          return error.message;
+                        }
+                      }}
                     />
                   </div>
                   <ErrorMessage
@@ -119,6 +135,13 @@ const Signup = ({ setModal }) => {
                       name="phone"
                       placeholder="0000000000"
                       autoComplete="off"
+                      validate={(value) => {
+                        try {
+                          validationSchema1.fields.phone.validateSync(value);
+                        } catch (error) {
+                          return error.message;
+                        }
+                      }}
                     />
                   </div>
                   <ErrorMessage
@@ -128,7 +151,10 @@ const Signup = ({ setModal }) => {
                   />
                 </div>
                 <div className={styles.btnwrap}>
-                  <button type="submit" disabled={formik.isSubmitting}>
+                  <button
+                    type="submit"
+                    disabled={formik.isSubmitting || !formik.isValid}
+                  >
                     <img src={next} alt="" />
                   </button>
                   <p>
@@ -154,6 +180,8 @@ const Signup = ({ setModal }) => {
               id_card: null,
             }}
             validationSchema={validationSchema2}
+            validateOnChange={true}
+            validateOnBlur={true}
             onSubmit={handleSubmit}
           >
             {(formik) => (
@@ -167,6 +195,13 @@ const Signup = ({ setModal }) => {
                       name="name"
                       placeholder="John Doe"
                       autoComplete="off"
+                      validate={(value) => {
+                        try {
+                          validationSchema1.fields.name.validateSync(value);
+                        } catch (error) {
+                          return error.message;
+                        }
+                      }}
                     />
                   </div>
                   <ErrorMessage
@@ -252,7 +287,7 @@ const Signup = ({ setModal }) => {
                 <div className={styles.btnwrap}>
                   <button
                     type="submit"
-                    disabled={formik.isSubmitting || isLoading}
+                    disabled={formik.isSubmitting || !formik.isValid || isLoading}
                   >
                     <span>
                       {isLoading ? (

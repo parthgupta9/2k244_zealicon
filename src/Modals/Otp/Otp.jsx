@@ -11,7 +11,6 @@ import { LOGIN_STARTED } from "../../actions/actionType/actionType";
 
 const Otp = () => {
   const dispatch = useDispatch();
-  const location = useLocation();
   const { error, userData } = useSelector((state) => state.allReducers);
   const [isLoading, setIsLoading] = useState(false);
   const length = 6;
