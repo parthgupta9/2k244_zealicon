@@ -1,6 +1,6 @@
 @font-face {
   font-family: "rabu-kliwon";
-  src: local("rabu-kliwon"), url("./fonts/rabu-kliwon.otf") format("opentype");
+  src: local("rabu-kliwon"), url("fonts/rabu-kliwon.otf") format("opentype");
   font-weight: normal;
 }
 
