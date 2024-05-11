@@ -20,11 +20,12 @@
 .rightContainer{
     text-align: center;
 }
-.textBlue{
+.textBlue a{
     color: #8EEEF9;
     font-family: rabu-kliwon;
     font-weight: bolder;
     font-size: 2rem;
+    text-decoration: none;
 }
 .footer_map{
     width: 100%;

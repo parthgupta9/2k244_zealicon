@@ -29,7 +29,7 @@ const footer = () => {
     </div>
     <div className={`${styles.rightContainer}`}>
       <ul>
-      <li className={`${styles.textBlue}`}>Reach</li>
+      <li className={`${styles.textBlue}`}><a href='https://www.google.com/maps/place/JSS+Academy+of+Technical+Education/@28.6141105,77.3562014,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce5992452d761:0xaaa44725147c1507!8m2!3d28.6141105!4d77.3587763!16s%2Fm%2F05c14tc?entry=ttu'>Reach</a></li>
       <li><img className={`${styles.footer_map}`} src={Footer_Map} alt="" /></li>
       </ul>
     </div>
