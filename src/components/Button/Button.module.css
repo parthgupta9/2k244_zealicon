@@ -9,7 +9,7 @@
   transition: opacity 0.2s;
 }
 
-.buttonCont:hover{
+.buttonCont:hover {
   opacity: 0.9;
 }
 
