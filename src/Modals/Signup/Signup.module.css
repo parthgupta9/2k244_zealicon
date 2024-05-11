@@ -43,16 +43,19 @@
   display: flex;
   height: 100%;
   width: 100%;
+  color: #fff;
   padding: 0.5625rem;
   border: none;
   align-items: flex-start;
   gap: 0.625rem;
   border-radius: 0.25rem;
   background: #3d5c60;
+
 }
 .inputCont input::placeholder {
   color: #fff;
   font-family: "DM Sans";
+  opacity: 0.35;
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 400;
@@ -98,6 +101,7 @@
   font-weight: 400;
   line-height: 160%;
   text-decoration-line: underline;
+  cursor: pointer;
 }
 .uploadCont {
   width: 24.3125rem;

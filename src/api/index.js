@@ -1,5 +1,8 @@
 import axios from "axios";
-const SERVER_URL = `${import.meta.env.VITE_SERVER}`;
+const SERVER_URL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:8181"
+    : `${import.meta.env.VITE_SERVER}`;
 
 const API = axios.create({
   baseURL: SERVER_URL,

@@ -9,9 +9,11 @@
   border-radius: 0.25rem;
   background: #3d5c60;
   border: none;
+  color: #fff;
 }
 .otpInput::placeholder {
     color: #fff;
+    opacity: 0.35;
     font-family: "DM Sans";
     font-size: 0.875rem;
     font-style: normal;

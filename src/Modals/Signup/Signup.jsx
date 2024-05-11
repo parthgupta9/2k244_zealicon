@@ -84,6 +84,7 @@ const Signup = ({ setModal }) => {
                       type="text"
                       name="name"
                       placeholder="John Doe"
+                      autoComplete="off"
                     />
                   </div>
                   <ErrorMessage
@@ -100,6 +101,7 @@ const Signup = ({ setModal }) => {
                       type="email"
                       name="email"
                       placeholder="Default@gmail.com"
+                      autoComplete="off"
                     />
                   </div>
                   <ErrorMessage
@@ -115,7 +117,8 @@ const Signup = ({ setModal }) => {
                       id="phone"
                       type="tel"
                       name="phone"
-                      placeholder="9129380087"
+                      placeholder="0000000000"
+                      autoComplete="off"
                     />
                   </div>
                   <ErrorMessage
@@ -163,6 +166,7 @@ const Signup = ({ setModal }) => {
                       type="text"
                       name="name"
                       placeholder="John Doe"
+                      autoComplete="off"
                     />
                   </div>
                   <ErrorMessage

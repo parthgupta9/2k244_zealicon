@@ -49,9 +49,11 @@
   gap: 0.625rem;
   border-radius: 0.25rem;
   background: #3d5c60;
+  color: #fff;
 }
 .inputCont input::placeholder {
   color: #fff;
+  opacity: 0.35;
   font-family: "DM Sans";
   font-size: 0.875rem;
   font-style: normal;
@@ -99,6 +101,7 @@
   font-weight: 400;
   line-height: 160%;
   text-decoration-line: underline;
+  cursor: pointer;
 }
 /* 75 rem's */
 @media screen and (max-width: 1220px) {
@@ -162,6 +165,7 @@
   .inputwrap,
   .btnwrap button {
     width: 100%;
+    min-width: 20rem;
   }
   .btnwrap {
     margin-top: 2rem;

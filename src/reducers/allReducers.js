@@ -85,6 +85,7 @@ const authReducer = (state = initialState, action) => {
         isAuthenticated: false,
         error: null,
         zealId: null,
+        isPaymentDone:false,
         step: 1,
       };
 

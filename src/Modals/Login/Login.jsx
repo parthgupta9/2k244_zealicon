@@ -6,7 +6,9 @@ import styles from "./Login.module.css";
 import nextBtn from "./assets/nextBtn.svg";
 import Loader from "../../components/Loader/Loader";
 import { SIGNUP_STARTED } from "../../actions/actionType/actionType";
-import {toast } from "react-toastify";
+import { toast } from "react-toastify";
+
+const phoneRegex = /^[6-9]\d{9}$/;
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -21,57 +23,59 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
-    if (phone.trim < 10) {
+    if (!phoneRegex.test(phone.trim())) {
+      setIsLoading(false);
+      toast.error("Not a Phone Number.");
       return;
     }
-    dispatch(login({ phone }, loaderOff, toast ));
+    dispatch(login({ phone }, loaderOff, toast));
   };
 
   return (
     <>
-    
-    <div className={styles.formCont}>
-      <h2>Welcome Back</h2>
-      <div className={styles.formik}>
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <div className={styles.inputCont}>
-            <label htmlFor="phone">Enter your mobile number</label>
-            <div className={styles.inputWrap}>
-              <input
-                type="tel"
-                name="phone"
-                value={phone}
-                onChange={handleChange}
-                autoComplete="off"
-              />
+      <div className={styles.formCont}>
+        <h2>Welcome Back</h2>
+        <div className={styles.formik}>
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <div className={styles.inputCont}>
+              <label htmlFor="phone">Enter your mobile number</label>
+              <div className={styles.inputWrap}>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={phone}
+                  onChange={handleChange}
+                  autoComplete="off"
+                  placeholder="0000000000"
+                />
+              </div>
             </div>
-          </div>
-          <div className={styles.btnwrap}>
-            <button type="submit" disabled={isLoading}>
-              <span>
-                {isLoading ? (
-                  <div className={styles.loaderWrap}>
-                    <Loader loaderht="30px" spinnerbox="20px" />
-                  </div>
-                ) : (
-                  <img src={nextBtn} alt="" />
-                )}
-              </span>
-            </button>
-            <p>
-              Create an account!{" "}
-              <span
-                onClick={() =>
-                  dispatch({ type: SIGNUP_STARTED, payload: { step: 2 } })
-                }
-              >
-                Signup
-              </span>
-            </p>
-          </div>
-        </form>
+            <div className={styles.btnwrap}>
+              <button type="submit" disabled={isLoading}>
+                <span>
+                  {isLoading ? (
+                    <div className={styles.loaderWrap}>
+                      <Loader loaderht="30px" spinnerbox="20px" />
+                    </div>
+                  ) : (
+                    <img src={nextBtn} alt="" />
+                  )}
+                </span>
+              </button>
+              <p>
+                Create an account!{" "}
+                <span
+                  onClick={() =>
+                    dispatch({ type: SIGNUP_STARTED, payload: { step: 2 } })
+                  }
+                >
+                  Signup
+                </span>
+              </p>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
     </>
   );
 };

@@ -7,13 +7,12 @@ import Loader from "../../components/Loader/Loader";
 import OtpInput from "../../components/Loader/OtpInput/OtpInput";
 import { verifyOtp } from "../../actions/auth";
 import { toast } from "react-toastify";
+import { LOGIN_STARTED } from "../../actions/actionType/actionType";
 
 const Otp = () => {
   const dispatch = useDispatch();
   const location = useLocation();
-  const { error, userData } = useSelector(
-    (state) => state.allReducers
-  );
+  const { error, userData } = useSelector((state) => state.allReducers);
   const [isLoading, setIsLoading] = useState(false);
   const length = 6;
   const [otp, setOtp] = useState(new Array(length).fill(""));
@@ -35,7 +34,7 @@ const Otp = () => {
 
   const resendOtp = async () => {
     setIsLoading(true);
-    dispatch(resendOtp({ email : userData.email }, loaderOff));
+    dispatch(resendOtp({ email: userData.email }, loaderOff));
     if (error == null) {
       alert("We have sent the OTP, check your mail!");
     }
@@ -68,7 +67,14 @@ const Otp = () => {
               </span>
             </button>
             <p>
-              Already have an account?<Link to="/login">Login</Link>
+              Already have an account?
+              <span
+                onClick={() =>
+                  dispatch({ type: LOGIN_STARTED, payload: { step: 1 } })
+                }
+              >
+                Login
+              </span>
             </p>
           </div>
         </form>
