@@ -6,7 +6,8 @@
 }
 
 .land {
-  background-image: url("../../assets/images/finalbg.png");
+  /* background-image: url("../../assets/images/finalbg.png"); */
+  /* background-image: url("../Home/images/dark_bg.jpg"); */
   background-size: cover;
   height: 500px;
 }
@@ -16,8 +17,14 @@
   right: 0vw;
 }
 
-.event img {
-  height: 300px;
+.event {
+  height: 60vh;
+  width: 100vw;
+}
+.events-heading{
+  font-family: rabu-kliwon;
+  font-size: 5rem;
+
 }
 
 .title {
@@ -48,7 +55,8 @@
 } */
 
 .Zeal-bg {
-  background: url("../../../public/assets/images/LandingBack.png");
+  /* background: url("../../../public/assets/images/LandingBack.png"); */
+  background-image: url("../Home/images/dark_bg.jpg");
   background-color: black;
   min-height: 100vh;
 }

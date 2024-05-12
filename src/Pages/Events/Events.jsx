@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./Events.css";
 import Header from "../../components/Header/Header.jsx";
-import footer from "../../components/Footer/footer.jsx";
+import Footer from "../../components/Footer/Footer.jsx";
+import Ghosts from "../../components/Ghosts/Ghosts.jsx";
 import Eventshead from "../../assets/images/eventshead.png";
 import leftFrame from "../../assets/images/leftFrame.png";
 import rightFrame from "../../assets/images/rightFrame.png";
 import ZealCard from "./ZealCard.jsx";
 
 import axios from "axios";
+import zealiconlogo from "../../../public/images/zealicon_logo.svg"
 import EventCard from "./EventCard";
 
 import SearchIcon from "@mui/icons-material/Search";
@@ -33,20 +35,22 @@ function Events(){
   }, []);
   return (
     <>
-      {/* <Header/> */}
-      {/* <div className="rotate linear infinite flex justify-center bg-center bg-no-repeat bg-cover bg-backYellow h-full justify-items-center land">
-        <div className="event pt-36">
-          <img src={Eventshead} alt="" />
+      <Header/>
+      <Ghosts/>
+       <div className="rotate linear infinite flex justify-center bg-center bg-no-repeat bg-cover bg-backYellow h-full justify-items-center land">
+        <div className="event pt-36 flex items-center justify-center">
+
+          <p className="Events-heading">EVENTS</p>
         </div>
       </div>
       <div className="bands flex flex-row">
-        <div className="frame">
+        {/* <div className="frame">
           <img className="leftFrame" src={leftFrame} alt="" />
         </div>
         <div className="frame">
           <img className="rightFrame" src={rightFrame} alt="" />
-        </div>
-      </div> */}
+        </div> */}
+      </div> 
       <div className="Zeal-bg pt-7">
         {/* <ZealCard /> */}
         <div className="py-6">
@@ -199,7 +203,8 @@ function Events(){
         </div>
         
       </div>
-      <footer />
+      <Ghosts/>
+      <Footer />
     </>
   );
 }
