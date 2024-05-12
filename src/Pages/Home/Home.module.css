@@ -164,8 +164,53 @@
 
 /* Offers Section ------------------------------------------------------------------*/
 
+.offersSection {
+  position: relative;
+}
+
+.offersSection h2{
+  z-index: 1;
+}
+
 .offersCont {
+  z-index: 1;
   height: 10rem;
+}
+
+.bottomGhost1,
+.bottomGhost2 {
+  position: absolute;
+  top: 2rem;
+  /*ANIMATION START*/
+  animation-name: floating;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  z-index: 0;
+  /*ANIMATION END*/
+}
+
+.bottomGhost1 {
+  left: 0rem;
+  width: 18rem;
+}
+
+.bottomGhost2 {
+  right: 0rem;
+  width: 14rem;
+  animation-duration: 7s;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(5%);
+  }
+  50% {
+    transform: translateY(-20%);
+  }
+  100% {
+    transform: translateY(5%);
+  }
 }
 
 /* Tablet styling */
@@ -173,6 +218,12 @@
   .sectionsCont {
     background-image: url("images/dark_bg_phone.jpg");
     background-position-y: top;
+  }
+  .bottomGhost1 {
+    width: 16rem;
+  }
+  .bottomGhost2 {
+    width: 12rem;
   }
 }
 
@@ -201,5 +252,11 @@
   .imageCollage {
     padding: 0;
     margin-top: 2rem;
+  }
+  .bottomGhost1 {
+    width: 11rem;
+  }
+  .bottomGhost2 {
+    width: 8rem;
   }
 }

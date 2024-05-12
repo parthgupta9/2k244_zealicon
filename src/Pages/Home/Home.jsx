@@ -216,6 +216,16 @@ const Home = () => {
           {/* Offers Section ------------------------------------------------------------ */}
 
           <section className={styles.offersSection}>
+            <img
+              className={styles.bottomGhost1}
+              aria-hidden
+              src="./images/ghosts/ghost3.svg"
+            ></img>
+            <img
+              className={styles.bottomGhost2}
+              aria-hidden
+              src="./images/ghosts/ghost4.svg"
+            ></img>
             <h2>Offers</h2>
             <div className={styles.offersCont}></div>
           </section>

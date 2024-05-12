@@ -6,12 +6,12 @@ export default function Ghost() {
       <img
         className={styles.Ghost1}
         aria-hidden
-        src="./images/ghost1.svg"
+        src="./images/ghosts/ghost1.svg"
       ></img>
       <img
         className={styles.Ghost2}
         aria-hidden
-        src="./images/ghost2.svg"
+        src="./images/ghosts/ghost2.svg"
       ></img>
     </>
   );
