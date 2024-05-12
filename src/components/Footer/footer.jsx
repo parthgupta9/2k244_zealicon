@@ -1,9 +1,3 @@
-import React from "react";
-// import { Link } from 'react-router-dom';
-import Instagram from "../../assets/insta.png";
-import Gmail from "../../assets/gmail.png";
-import Footer_Map from "../../assets/footer_map.png";
-import Facebook from "../../assets/facebook.png";
 import styles from "./footer.module.css";
 
 const footer = () => {
@@ -40,7 +34,10 @@ const footer = () => {
       </section>
       <section className={styles.mapSection}>
         <h2>Reach</h2>
-        <a href="https://www.google.com/maps/place/JSS+Academy+of+Technical+Education/@28.6141105,77.3562014,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce5992452d761:0xaaa44725147c1507!8m2!3d28.6141105!4d77.3587763!16s%2Fm%2F05c14tc?entry=ttu" target="blank">
+        <a
+          href="https://www.google.com/maps/place/JSS+Academy+of+Technical+Education/@28.6141105,77.3562014,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce5992452d761:0xaaa44725147c1507!8m2!3d28.6141105!4d77.3587763!16s%2Fm%2F05c14tc?entry=ttu"
+          target="blank"
+        >
           <img src="./images/reach.png"></img>
         </a>
       </section>
