@@ -16,6 +16,7 @@ import "swiper/css/scrollbar";
 
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/footer";
+import Ghosts from "../../components/Ghosts/Ghosts";
 
 import Modal from "../Modal/Modal";
 
@@ -80,6 +81,8 @@ const Home = () => {
           </div>
         </div>
       )}
+
+      <Ghosts />
 
       {/* Header Section ------------------------------------------------------------ */}
 
