@@ -71,7 +71,7 @@ const Header = ({ setIsModalOpen, windowSize }) => {
         src="./images/zealicon_logo.svg"
         alt="zealicon logo"
       ></img>
-      {windowSize.width > 900 ? (
+      { windowSize?.width && windowSize.width> 900  ? (
         /* Desktop Navigation -------------------------------------------- */
 
         <nav className={styles.desktopNav}>

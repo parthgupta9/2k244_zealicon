@@ -4,6 +4,9 @@ import teamDataTech from "./techteamdata.jsx";
 import teamDataMan from "./dataman.jsx";
 import { useEffect, useState } from "react";
 import "./Team.css";
+import Header from "../../components/Header/Header.jsx"
+import Footer from "../../components/Footer/footer";
+import Ghosts from "../../components/Ghosts/Ghosts";
 
 function Team() {
   const [team, setTeam] = useState([]);
@@ -15,16 +18,15 @@ function Team() {
     setTechTeam(teamDataTech);
     setManTeam(teamDataMan);
   }, []);
-  // const [team, setTeam] = useState([]);
-  // useEffect(() => {
-  //   setTeam(teamData);
-  // }, []);
 
   return (
     <>
-      <div className="rotate linear infinite flex justify-center bg-center bg-no-repeat bg-cover bg-backYellow h-full justify-items-center topteam">
+    <Header/>
+    <Ghosts/>
+    
+      <div className="rotate linear infinite flex justify-center bg-center bg-no-repeat bg-cover bg-backYellow justify-items-center topteam">
         <div className="team pt-36 px-4">
-          <img src="/assets/images/Teampage.png" alt="" />
+       
         </div>
       </div>
       <div className="frames flex flex-row">
@@ -268,6 +270,7 @@ function Team() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

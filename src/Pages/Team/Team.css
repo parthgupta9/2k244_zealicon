@@ -1,3 +1,4 @@
+
 .pp,
 .pp img {
     height: 250px;
@@ -27,9 +28,10 @@
 }
 
 .topteam {
-    background-image: url(../../../public/assets/images/finalbg.png);
+    background-image: url("home_bg.jpg");
     background-size: cover;
-    height: 500px;
+    height: 420px;
+    /* background-color:  #22849c; */
 }
 
 .cards11 {
@@ -42,7 +44,7 @@
 }
 
 .main {
-    background: url("../../../public/assets/images/LandingBack.png");
+    /* background: url("../../../public/assets/images/LandingBack.png"); */
     background-color: black;
     min-height: 100vh;
 }
