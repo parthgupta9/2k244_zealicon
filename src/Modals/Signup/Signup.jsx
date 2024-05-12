@@ -13,6 +13,7 @@ import { toast } from "react-toastify";
 
 const Signup = ({ setModal }) => {
   const dispatch = useDispatch();
+  const { isZealIdFetcing } = useSelector((state) => state.allReducers);
   const [isLoading, setIsLoading] = useState(false);
   const [step, setStep] = useState(1);
   const [image, setImage] = useState(null);
@@ -155,7 +156,15 @@ const Signup = ({ setModal }) => {
                     type="submit"
                     disabled={formik.isSubmitting || !formik.isValid}
                   >
-                    <img src={next} alt="" />
+                    <span> 
+                      {isLoading || isZealIdFetcing ? (
+                        <div className={styles.loaderWrap}>
+                          <Loader loaderht="30px" spinnerbox="20px" />
+                        </div>
+                      ) : (
+                        <img src={next} alt="" />
+                      )}
+                    </span>
                   </button>
                   <p>
                     Already have an account?
@@ -287,10 +296,12 @@ const Signup = ({ setModal }) => {
                 <div className={styles.btnwrap}>
                   <button
                     type="submit"
-                    disabled={formik.isSubmitting || !formik.isValid || isLoading}
+                    disabled={
+                      formik.isSubmitting || !formik.isValid || isLoading
+                    }
                   >
                     <span>
-                      {isLoading ? (
+                      {isLoading || isZealIdFetcing ? (
                         <div className={styles.loaderWrap}>
                           <Loader loaderht="30px" spinnerbox="20px" />
                         </div>

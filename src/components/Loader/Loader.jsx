@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Loader.module.css";
 
-const Loader = ({ loaderht, spinnerbox }) => {
+const Loader = ({ loaderht = "50px", spinnerbox = "20px" }) => {
   return (
     <div className={styles.loader} style={{ height: loaderht }}>
       <div

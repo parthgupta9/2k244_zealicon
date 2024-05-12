@@ -12,6 +12,7 @@ const phoneRegex = /^(\+?91|91)?[6789]\d{9}$/;
 
 const Login = () => {
   const dispatch = useDispatch();
+  const { isZealIdFetching } = useSelector((state) => state.allReducers);
   const [phone, setPhone] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const loaderOff = () => setIsLoading(false);
@@ -56,7 +57,7 @@ const Login = () => {
                 disabled={isLoading || !phoneRegex.test(phone.trim())}
               >
                 <span>
-                  {isLoading ? (
+                  {isLoading || isZealIdFetching? (
                     <div className={styles.loaderWrap}>
                       <Loader loaderht="30px" spinnerbox="20px" />
                     </div>

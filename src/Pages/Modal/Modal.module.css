@@ -105,4 +105,7 @@
   .container {
     max-height: 60rem;
   }
+  .wrapPayment span {
+    font-size: 1rem;
+  }
 }

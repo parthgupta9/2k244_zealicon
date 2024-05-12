@@ -1,5 +1,7 @@
 import * as api from "../api";
 import {
+  FETCH_ZEAL_ID_END,
+  FETCH_ZEAL_ID_STARTED,
   FETCH_ZEAL_ID_SUCCESS,
   LOGIN_FAILURE,
   LOGOUT,
@@ -7,15 +9,25 @@ import {
 
 export const fetchZealId = () => async (dispatch) => {
   try {
-    console.log("Fetch Zeal Id Started")
+    dispatch({ type: FETCH_ZEAL_ID_STARTED });
+    console.log("Fetch Zeal Id Started");
+
     const token = localStorage.getItem("token");
-    if (!token) return;
+    if (!token) {
+      dispatch({ type: FETCH_ZEAL_ID_END });
+      return;
+    }
     let response = await api.fetchZealId(token);
     if (response.status === 200) {
-      console.log("ZEALID", response.data.zeal_id)
+      console.log("ZEALID", response);
       dispatch({
         type: FETCH_ZEAL_ID_SUCCESS,
-        payload: { zealId: response.data.zeal_id, step: 5, isAuthenticated : true },
+        payload: {
+          zealId: response.data.zeal_id,
+          step: 5,
+          isAuthenticated: true,
+          userData: response.data.userData,
+        },
       });
     }
   } catch (error) {

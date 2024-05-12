@@ -1,5 +1,7 @@
 import {
+  FETCH_ZEAL_ID_END,
   FETCH_ZEAL_ID_FAILURE,
+  FETCH_ZEAL_ID_STARTED,
   FETCH_ZEAL_ID_SUCCESS,
   LOGIN_FAILURE,
   LOGIN_STARTED,
@@ -17,7 +19,8 @@ import {
 
 const initialState = {
   isAuthenticated: false,
-  userData: {},
+  isZealIdFetching: false,
+  userData: {}, // {name : "", secure_url: ""}
   error: null,
   zealId: null,
   step: 1,
@@ -48,6 +51,7 @@ const authReducer = (state = initialState, action) => {
         ...state,
         userData: {},
         step: action.payload.step,
+        isZealIdFetching: false,
         isAuthenticated: false,
         error: action.payload.error,
       };
@@ -56,12 +60,14 @@ const authReducer = (state = initialState, action) => {
         ...state,
         isAuthenticated: false,
         error: action.payload.error,
+        isZealIdFetching: false,
       };
     case VERIFY_OTP_FAILURE:
       return {
         ...state,
         isAuthenticated: false,
         error: action.payload.error,
+        isZealIdFetching: false,
       };
     case VERIFY_OTP_SUCCESS:
       return {
@@ -70,6 +76,7 @@ const authReducer = (state = initialState, action) => {
         isAuthenticated: true,
         step: action.payload.step,
         error: null,
+        isZealIdFetching: false,
       };
     case RESEND_OTP_SUCCESS:
       return {
@@ -85,17 +92,24 @@ const authReducer = (state = initialState, action) => {
         isAuthenticated: false,
         error: null,
         zealId: null,
-        isPaymentDone:false,
+        isPaymentDone: false,
+        isZealIdFetching: false,
         step: 1,
       };
 
     // Fetch Zeal Id Reducers
+    case FETCH_ZEAL_ID_STARTED:
+      return {
+        ...state,
+        isZealIdFetching: true,
+      };
     case FETCH_ZEAL_ID_SUCCESS:
-      console.log("FETCH_ZEAL_ID_SUCCESS", action.payload);
       return {
         ...state,
         zealId: action.payload.zealId,
+        isZealIdFetching: false,
         step: action.payload.step,
+        userData: action.payload.userData,
         isAuthenticated: action.payload.isAuthenticated,
         error: null,
       };
@@ -103,7 +117,14 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         zealId: null,
+        userData: {},
+        isZealIdFetching: false,
         error: action.payload.error,
+      };
+    case FETCH_ZEAL_ID_END:
+      return {
+        ...state,
+        isZealIdFetching: false,
       };
 
     // Payment

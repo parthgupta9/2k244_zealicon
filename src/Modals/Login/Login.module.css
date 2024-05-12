@@ -44,6 +44,7 @@
   height: 100%;
   width: 100%;
   padding: 0.5625rem;
+  font-size: 0.85rem;
   border: none;
   align-items: flex-start;
   gap: 0.625rem;
@@ -169,7 +170,7 @@
   .inputwrap,
   .btnwrap button {
     width: 100%;
-    min-width: 20rem;
+    min-width: 18rem;
   }
   .btnwrap {
     margin-top: 2rem;

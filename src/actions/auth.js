@@ -1,5 +1,6 @@
 import * as api from "../api";
 import {
+  FETCH_ZEAL_ID_STARTED,
   FETCH_ZEAL_ID_SUCCESS,
   LOGIN_FAILURE,
   LOGIN_SUCCESS,
@@ -89,12 +90,18 @@ export const verifyOtp = (data, loaderOff, toast) => async (dispatch) => {
       // Fetch Zeal Id here
       try {
         console.log("Fetching Zeal Id");
+        dispatch({ type: FETCH_ZEAL_ID_STARTED });
         let responseForZeal = await api.fetchZealId(data.token);
         console.log("Response", responseForZeal);
         if (responseForZeal.status === 200) {
           dispatch({
             type: FETCH_ZEAL_ID_SUCCESS,
-            payload: { zealId: responseForZeal.data.zeal_id, step: 5 , isAuthenticated : true},
+            payload: {
+              zealId: responseForZeal.data.zeal_id,
+              step: 5,
+              isAuthenticated: true,
+              userData: responseForZeal.data.userData,
+            },
           });
         }
       } catch (error) {
