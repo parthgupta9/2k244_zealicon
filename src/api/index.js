@@ -21,7 +21,7 @@ API.interceptors.request.use((req) => {
 export const signUp = (formData) => API.post("/api/auth/signup", formData);
 export const logIn = (authData) => API.post("/api/auth/login", authData);
 export const verifyOtp = (data) => API.post("/api/auth/verify-otp", data);
-export const resendOtp = (data) => API.post("/api/auth/login", data);
+export const resendOtp = (data) => API.post("/api/auth/resend-otp", data);
 
 // Payment
 export const getPaymentKey = () => API.get("/api/payment/get-key");
