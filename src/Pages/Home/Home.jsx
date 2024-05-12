@@ -158,9 +158,11 @@ const Home = () => {
                 modules={[Autoplay]}
                 //   freeMode={true}
                 loop={true}
-                autoplay={true}
+                autoplay={{
+                  delay: 1000,
+                }}
                 slidesPerView={"auto"}
-                spaceBetween={30}
+                spaceBetween={50}
               >
                 <SwiperSlide style={{ width: "auto" }}>
                   <img

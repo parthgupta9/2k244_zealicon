@@ -11,8 +11,15 @@ import styles from "./Header.module.css";
 import Button from "../Button/Button";
 
 const Header = ({ setIsModalOpen, windowSize }) => {
-
   const [isOpen, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "scroll";
+    }
+  }, [isOpen]);
 
   const dispatch = useDispatch();
   const { zealId, isAuthenticated } = useSelector((state) => state.allReducers);
@@ -41,6 +48,7 @@ const Header = ({ setIsModalOpen, windowSize }) => {
               text={"LOGOUT"}
               action={() => {
                 toast.success("Logout Successfully!");
+                setOpen(false);
                 return dispatch({ type: LOGOUT });
               }}
             />
@@ -64,7 +72,6 @@ const Header = ({ setIsModalOpen, windowSize }) => {
         alt="zealicon logo"
       ></img>
       {windowSize.width > 900 ? (
-
         /* Desktop Navigation -------------------------------------------- */
 
         <nav className={styles.desktopNav}>
@@ -95,7 +102,6 @@ const Header = ({ setIsModalOpen, windowSize }) => {
         </nav>
       ) : (
         <>
-        
           {/* Phone Navigation -------------------------------------------- */}
 
           <div className={styles.hamIcon}>
