@@ -10,7 +10,7 @@
   /* background-image: url("../Home/images/dark_bg.jpg"); */
   background-image: url("home_bg.jpg");
   background-size: cover;
-  height: 420px;
+  height: 650px;
 }
 
 .rightFrame {
@@ -75,6 +75,13 @@
 }
 
 @media screen and (max-width: 768px) {
+  .land {
+    /* background-image: url("../../assets/images/finalbg.png"); */
+    /* background-image: url("../Home/images/dark_bg.jpg"); */
+    background-image: url("./home_phone_bg.jpg");
+    background-size: cover;
+    height: 500px;
+  }
   .container {
     display: flex;
     flex-direction: column;
