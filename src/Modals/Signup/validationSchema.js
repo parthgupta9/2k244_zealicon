@@ -3,7 +3,13 @@ export const validationSchema1 = Yup.object().shape({
   name: Yup.string()
     .required("Name is required")
     .max(50, "Name must be at most 50 characters"),
-  email: Yup.string().email("Invalid email").required("Email is required"),
+  email: Yup.string()
+    .email("Invalid email")
+    .matches(
+      /^[a-zA-Z0-9._%+-]+@gmail\.com$/,
+      "Only Gmail addresses are allowed"
+    )
+    .required("Email is required"),
   phone: Yup.string()
     .matches(/^(\+?91|91)?[6789]\d{9}$/, "Invalid phone number")
     .min(10, "Phone number must be at least 10 digits")
