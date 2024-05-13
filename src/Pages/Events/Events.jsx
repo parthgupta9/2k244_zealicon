@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Events.css";
 import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer.jsx";
+import Footer from "../../components/Footer/footer.jsx"
 import Ghosts from "../../components/Ghosts/Ghosts";
 import Eventshead from "../../assets/images/eventshead.png";
 import leftFrame from "../../assets/images/leftFrame.png";
