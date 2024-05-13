@@ -28,9 +28,10 @@
 }
 
 .topteam {
+  
     /* background-image: url("./home_bg.jpg"); */
-    /* background-size: cover; */
-    /* height: 650px; */
+  
+    /* height: 650px;
     /* background-color:  #22849c; */
 }
 
@@ -44,13 +45,13 @@
 }
 
 .main {
-    /* background: url("../../../public/assets/images/LandingBack.png"); */
-    background-color: black;
-    min-height: 100vh;
+    background-image: url("../Home/images/dark_bg.jpg");
+   
 }
 
 @media screen and (max-width: 768px) {
     .topteam {
+        background-image: url("./Home/images/dark_bg.jpg");
         /* background-image: url("../../assets/images/finalbg.png"); */
         /* background-image: url("../Home/images/dark_bg.jpg"); */
         /* background-image: url("./home_phone_bg.jpg"); */
