@@ -7,6 +7,9 @@ import Zeal from "../../Modals/Zeal/Zeal";
 import Otp from "../../Modals/Otp/Otp";
 import Login from "../../Modals/Login/Login";
 import Pay from "../../Modals/Pay/Pay";
+import ellipse from "./assets/ellipse.svg";
+import total from "./assets/total.svg"
+import text from "./assets/text.svg";
 
 const Modal = ({ setIsModalOpen }) => {
   const { error, step, isPaymentDone } = useSelector(
@@ -62,7 +65,9 @@ const Modal = ({ setIsModalOpen }) => {
         )}
         <div className={styles.innerCont}>
           <div className={styles.imgCont}>
-            <img src={ghost} className={styles.image} alt="ghost" />
+            <img src={ellipse} className={styles.ellipse} />
+            <img src={total} className={styles.total} alt="" />
+            <img src={text} className={styles.t} alt="" />
           </div>
           {step === 1 ? (
             <Login />
