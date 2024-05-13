@@ -19,6 +19,7 @@ import BrochurePDF from "../../assets/EventSchedule/brochure.pdf";
 import { Link } from "react-router-dom";
 
 function Events(){
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [zealevents, setzealevents] = useState(null);
   const [selectedDay, setSelectedDay] = useState(null);
@@ -33,9 +34,26 @@ function Events(){
       })
       .catch((error) => console.log(error));
   }, []);
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+  
+  const updateWindowSize = () => {
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  };
+  
+  useEffect(() => {
+    window.addEventListener("resize", updateWindowSize);
+    return () => window.removeEventListener("resize", updateWindowSize);
+  }, []);
+
   return (
     <>
-      <Header />
+    <Header setIsModalOpen={setIsModalOpen} windowSize={windowSize} />
       <Ghosts/>
        <div className="rotate linear infinite flex justify-center bg-center bg-no-repeat bg-cover bg-backYellow justify-items-center land">
         <div className="event pt-36 flex items-center justify-center">
@@ -61,7 +79,7 @@ function Events(){
           <div className="flex-col flex md:flex-row items-center justify-center gap-5 py-2 w-[100%]">
             <iframe
               className="md:w-[30%] w-[80%] h-[150px] md:h-[250px]"
-              src="https://www.youtube.com/embed/W0iwArb_s9w"
+              src="https://www.youtube.com/embed/NTl15r7MgCM?si=DB4fjlI7EK-3qNkz"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -69,7 +87,7 @@ function Events(){
             ></iframe>
             <iframe
               className="md:w-[30%] w-[80%] h-[150px] md:h-[250px]"
-              src="https://www.youtube.com/embed/fiO3yW_GOP8"
+              src="https://www.youtube.com/embed/je4QSN3oQ2s?si=1Dmaw5rwS8r7gm_I"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

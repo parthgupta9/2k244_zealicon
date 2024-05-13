@@ -72,10 +72,7 @@ function EventDescription(props) {
             {`${card?.name}`}
           </div>
           <div className="description text-white  text-2xl ">
-            {/* {`${description}`} Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet
-            odio mattis. Class aptent taciti sociosqu ad litora torquent per
-            conubia nostra, per inceptos himenaeos. */}
+          
             {`${card?.description}`}
           </div>
           <div className="details grid grid-cols-1 md:grid-cols-2 p-2">
