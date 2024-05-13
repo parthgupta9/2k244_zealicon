@@ -32,7 +32,7 @@ export const UserStateProvider = ({ children }) => {
         }, 4000);
     };
 
-    console.log("USERSTATE: ", userData);
+    // console.log("USERSTATE: ", userData);
     const token = localStorage.getItem("token");
     console.log(token);
     useEffect(() => {

@@ -19,7 +19,7 @@ export const fetchZealId = () => async (dispatch) => {
     }
     let response = await api.fetchZealId(token);
     if (response.status === 200) {
-      console.log("ZEALID", response);
+      // console.log("ZEALID", response);
       dispatch({
         type: FETCH_ZEAL_ID_SUCCESS,
         payload: {

@@ -18,7 +18,7 @@ export const doPayment = (cashfree, loaderOff, toast) => async (dispatch) => {
     }
 
     await dispatch(fetchZealId());
-    
+
     // get the session ID
     let sessionId = null;
     try {
@@ -50,7 +50,7 @@ export const doPayment = (cashfree, loaderOff, toast) => async (dispatch) => {
       // Verify Payment
       try {
         const response = await api.paymentVerification(ID);
-        console.log("Response", response);
+        // console.log("Response", response);
         if (response.status == 200) {
           toast.success("Payment Successfully Completed");
           dispatch({ type: PAYMENT_SUCCESS });

@@ -34,13 +34,13 @@ const Signup = ({ setModal }) => {
     }
     setIsLoading(true);
     try {
-      console.log(
-        "Values",
-        values.email,
-        values.id_card,
-        values.phone,
-        values.id_card
-      );
+      // console.log(
+      //   "Values",
+      //   values.email,
+      //   values.id_card,
+      //   values.phone,
+      //   values.id_card
+      // );
       // let formDataToSend = new FormData();
       // formDataToSend.append("name", values.name);
       // formDataToSend.append("email", values.email);
@@ -55,7 +55,7 @@ const Signup = ({ setModal }) => {
         phone: values.phone,
         id_card: photo,
       };
-      console.log("Form DATA", data);
+      // console.log("Form DATA", data);
       dispatch(signup(data, loaderoff, toast));
     } catch (error) {
       console.log("Error Occured");

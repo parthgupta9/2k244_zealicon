@@ -92,7 +92,7 @@ export const verifyOtp = (data, loaderOff, toast) => async (dispatch) => {
         console.log("Fetching Zeal Id");
         dispatch({ type: FETCH_ZEAL_ID_STARTED });
         let responseForZeal = await api.fetchZealId(data.token);
-        console.log("Response", responseForZeal);
+        // console.log("Response", responseForZeal);
         if (responseForZeal.status === 200) {
           dispatch({
             type: FETCH_ZEAL_ID_SUCCESS,

@@ -46,7 +46,6 @@ const authReducer = (state = initialState, action) => {
       };
 
     case SIGNUP_FAILURE:
-      console.log("SINUP FAILEYUE", action.payload);
       return {
         ...state,
         userData: {},
