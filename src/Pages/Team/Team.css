@@ -28,9 +28,9 @@
 }
 
 .topteam {
-    background-image: url("./home_bg.jpg");
-    background-size: cover;
-    height: 650px;
+    /* background-image: url("./home_bg.jpg"); */
+    /* background-size: cover; */
+    /* height: 650px; */
     /* background-color:  #22849c; */
 }
 
@@ -53,8 +53,8 @@
     .topteam {
         /* background-image: url("../../assets/images/finalbg.png"); */
         /* background-image: url("../Home/images/dark_bg.jpg"); */
-        background-image: url("./home_phone_bg.jpg");
-        background-size: cover;
-        height: 650px;
+        /* background-image: url("./home_phone_bg.jpg"); */
+        /* background-size: cover; */
+        /* height: 650px; */
       }
 }

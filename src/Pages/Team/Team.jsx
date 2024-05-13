@@ -41,7 +41,7 @@ function Team() {
   return (
     <>
     <Header setIsModalOpen={setIsModalOpen} windowSize={windowSize}/>
-    <Ghosts/>
+    {/* <Ghosts/> */}
     
       <div className="rotate linear infinite flex justify-center bg-center bg-no-repeat bg-cover bg-backYellow justify-items-center topteam">
         <div className="team pt-36 px-4">

@@ -43,7 +43,7 @@ const Header = ({ setIsModalOpen, windowSize }) => {
         <nav className={styles.mobileNav} onClick={() => setOpen(false)}>
           <ul className={styles.mobileNavLinksCont}>
             <li>
-              <a href="#about">About</a>
+              <a href="/#about">About</a>
             </li>
             <li>
               <Link to="/events">Events</Link>
@@ -90,7 +90,7 @@ const Header = ({ setIsModalOpen, windowSize }) => {
         <nav className={styles.desktopNav}>
           <ul>
             <li>
-              <a href="#about">About</a>
+              <a href="/#about">About</a>
             </li>
             <li>
               <Link to="/events">Events</Link>

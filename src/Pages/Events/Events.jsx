@@ -54,7 +54,7 @@ function Events(){
   return (
     <>
     <Header setIsModalOpen={setIsModalOpen} windowSize={windowSize} />
-      <Ghosts/>
+      {/* <Ghosts/> */}
        <div className="rotate linear infinite flex justify-center bg-center bg-no-repeat bg-cover bg-backYellow justify-items-center land">
         <div className="event pt-36 flex items-center justify-center">
         </div>
@@ -178,7 +178,7 @@ function Events(){
               />
               <button
                 type="submit"
-                style={{ position: "absolute", top: 10, left: 10 }}
+                style={{ position: "absolute", top: 10, left: 10,display: "flex", justifyContent: "center" }}
               >
                 <SearchIcon sx={{ color: "black" }} />
               </button>
