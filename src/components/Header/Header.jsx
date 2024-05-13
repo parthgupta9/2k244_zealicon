@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import styles from "./Header.module.css";
 import Button from "../Button/Button";
 
+
 const Header = ({ setIsModalOpen, windowSize }) => {
   const [isOpen, setOpen] = useState(false);
 
@@ -38,7 +39,7 @@ const Header = ({ setIsModalOpen, windowSize }) => {
         <div aria-hidden className={styles.hideOverlay}></div>
         <nav className={styles.mobileNav}>
           <ul className={styles.mobileNavLinksCont}>
-            <li>About</li>
+            <li><a href="/about">About</a></li>
             <li><Link to='/events'>Events</Link></li>
             <li><Link to='/team'>Team</Link></li>
             <li>Download App</li>
@@ -67,11 +68,11 @@ const Header = ({ setIsModalOpen, windowSize }) => {
 
   return (
     <header className={`${styles.header}`}>
-      <img
+   <Link to="/"><img
         className="logo"
         src="./images/zealicon_logo.svg"
         alt="zealicon logo"
-      ></img>
+      ></img></Link>
       { windowSize?.width && windowSize.width> 900  ? (
         /* Desktop Navigation -------------------------------------------- */
 

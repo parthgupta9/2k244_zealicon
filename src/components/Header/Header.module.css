@@ -1,8 +1,8 @@
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   color: white;
-  padding: 1.25rem 6rem;
+   padding: 1.25rem 0rem;
   gap: 3rem;
   position: absolute;
   top: 0;
@@ -12,6 +12,10 @@
 
 /* .logo {
 } */
+.header img{
+ display: flex;
+
+}
 
 .desktopNav ul {
   display: flex;

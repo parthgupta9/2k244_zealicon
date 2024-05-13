@@ -115,7 +115,7 @@ const Home = () => {
 
         {/* Info Section ------------------------------------------------------------ */}
 
-        <div className={styles.sectionsCont}>
+        <div className={styles.sectionsCont } >
           <div className={styles.infoSection} >
             <p className={styles.eventDesc}>
               Zealicon is the annual techno-cultural festival of JSSATE, Noida.
