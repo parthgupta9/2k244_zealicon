@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchZealId } from "../../actions/zeal";
-
 import styles from "./Home.module.css";
-
 // import Swiper core and required modules
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -16,6 +13,8 @@ import "swiper/css/scrollbar";
 
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/footer";
+import Ghosts from "../../components/Ghosts/Ghosts";
+
 
 import Modal from "../Modal/Modal";
 
@@ -81,6 +80,8 @@ const Home = () => {
         </div>
       )}
 
+      <Ghosts />
+
       {/* Header Section ------------------------------------------------------------ */}
 
       <Header setIsModalOpen={setIsModalOpen} windowSize={windowSize} />
@@ -115,7 +116,7 @@ const Home = () => {
         {/* Info Section ------------------------------------------------------------ */}
 
         <div className={styles.sectionsCont}>
-          <div className={styles.infoSection}>
+          <div className={styles.infoSection} >
             <p className={styles.eventDesc}>
               Zealicon is the annual techno-cultural festival of JSSATE, Noida.
               Dedicated to the celebration of creativity and science, it is a
@@ -158,9 +159,11 @@ const Home = () => {
                 modules={[Autoplay]}
                 //   freeMode={true}
                 loop={true}
-                autoplay={true}
+                autoplay={{
+                  delay: 1000,
+                }}
                 slidesPerView={"auto"}
-                spaceBetween={30}
+                spaceBetween={50}
               >
                 <SwiperSlide style={{ width: "auto" }}>
                   <img
@@ -211,6 +214,16 @@ const Home = () => {
           {/* Offers Section ------------------------------------------------------------ */}
 
           <section className={styles.offersSection}>
+            <img
+              className={styles.bottomGhost1}
+              aria-hidden
+              src="./images/ghosts/ghost3.svg"
+            ></img>
+            <img
+              className={styles.bottomGhost2}
+              aria-hidden
+              src="./images/ghosts/ghost4.svg"
+            ></img>
             <h2>Offers</h2>
             <div className={styles.offersCont}></div>
           </section>

@@ -6,13 +6,21 @@ import { LOGOUT } from "../../actions/actionType/actionType";
 
 import { toast } from "react-toastify";
 import Hamburger from "hamburger-react";
+import { Link } from 'react-router-dom';
 
 import styles from "./Header.module.css";
 import Button from "../Button/Button";
 
 const Header = ({ setIsModalOpen, windowSize }) => {
-
   const [isOpen, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "scroll";
+    }
+  }, [isOpen]);
 
   const dispatch = useDispatch();
   const { zealId, isAuthenticated } = useSelector((state) => state.allReducers);
@@ -31,8 +39,8 @@ const Header = ({ setIsModalOpen, windowSize }) => {
         <nav className={styles.mobileNav}>
           <ul className={styles.mobileNavLinksCont}>
             <li>About</li>
-            <li>Events</li>
-            <li>Team</li>
+            <li><Link to='/events'>Events</Link></li>
+            <li><Link to='/team'>Team</Link></li>
             <li>Download App</li>
           </ul>
           {zealId && isAuthenticated ? (
@@ -41,6 +49,7 @@ const Header = ({ setIsModalOpen, windowSize }) => {
               text={"LOGOUT"}
               action={() => {
                 toast.success("Logout Successfully!");
+                setOpen(false);
                 return dispatch({ type: LOGOUT });
               }}
             />
@@ -63,15 +72,14 @@ const Header = ({ setIsModalOpen, windowSize }) => {
         src="./images/zealicon_logo.svg"
         alt="zealicon logo"
       ></img>
-      {windowSize.width > 900 ? (
-
+      { windowSize?.width && windowSize.width> 900  ? (
         /* Desktop Navigation -------------------------------------------- */
 
         <nav className={styles.desktopNav}>
           <ul>
-            <li>About</li>
-            <li>Events</li>
-            <li>Team</li>
+            <li><Link to=''>About</Link></li>
+            <li><Link to='/events'>Events</Link></li>
+            <li><Link to='/team'>Team</Link></li>
             <li>Download App</li>
             {zealId && isAuthenticated ? (
               <Button
@@ -95,7 +103,6 @@ const Header = ({ setIsModalOpen, windowSize }) => {
         </nav>
       ) : (
         <>
-        
           {/* Phone Navigation -------------------------------------------- */}
 
           <div className={styles.hamIcon}>
