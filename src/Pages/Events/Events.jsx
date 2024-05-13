@@ -59,7 +59,7 @@ function Events(){
           <div className="flex-col flex md:flex-row items-center justify-center gap-5 py-2 w-[100%]">
             <iframe
               className="md:w-[30%] w-[80%] h-[150px] md:h-[250px]"
-              src="https://www.youtube.com/embed/W0iwArb_s9w"
+              src="https://www.youtube.com/embed/NTl15r7MgCM?si=DB4fjlI7EK-3qNkz"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -67,7 +67,7 @@ function Events(){
             ></iframe>
             <iframe
               className="md:w-[30%] w-[80%] h-[150px] md:h-[250px]"
-              src="https://www.youtube.com/embed/fiO3yW_GOP8"
+              src="https://www.youtube.com/embed/je4QSN3oQ2s?si=1Dmaw5rwS8r7gm_I"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
