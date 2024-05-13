@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Events.css";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/footer.jsx"
-import Ghosts from "../../components/Ghosts/Ghosts";
+
 import Eventshead from "../../assets/images/eventshead.png";
 import leftFrame from "../../assets/images/leftFrame.png";
 import rightFrame from "../../assets/images/rightFrame.png";
@@ -54,18 +54,13 @@ function Events(){
   return (
     <>
     <Header setIsModalOpen={setIsModalOpen} windowSize={windowSize} />
-      {/* <Ghosts/> */}
+      
        <div className="rotate linear infinite flex justify-center bg-center bg-no-repeat bg-cover bg-backYellow justify-items-center land">
         <div className="event pt-36 flex items-center justify-center">
         </div>
       </div>
       <div className="bands flex flex-row">
-        {/* <div className="frame">
-          <img className="leftFrame" src={leftFrame} alt="" />
-        </div>
-        <div className="frame">
-          <img className="rightFrame" src={rightFrame} alt="" />
-        </div> */}
+       
       </div> 
       <div className="Zeal-bg pt-7">
         {/* <ZealCard /> */}
@@ -221,7 +216,7 @@ function Events(){
         </div>
         
       </div>
-      <Ghosts/>
+      
       <Footer />
     </>
   );

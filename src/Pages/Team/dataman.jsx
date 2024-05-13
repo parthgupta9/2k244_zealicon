@@ -24,13 +24,13 @@ const teamDataMan = [
   {
     id: 45,
     name: "Dr. T.G. Mamatha",
-    designation: "Vice Principal",
+    designation: "Vice Principal & Dean (Academics)",
     photo: mamatha,
   },
   {
     id: 44,
     name: "Dr. R.S. Jagdish",
-    designation: "Dean (Academics)",
+    designation: "1st year",
     photo: jagdish,
   },
   {
@@ -52,12 +52,6 @@ const teamDataMan = [
     photo: prashant,
   },
 
-  {
-    id: 46,
-    name: "Dr. Z.K. Ansari",
-    designation: "First Year Coordinator",
-    photo: zka,
-  },
   {
     id: 48,
     name: "Dr. Chhaya Grover",

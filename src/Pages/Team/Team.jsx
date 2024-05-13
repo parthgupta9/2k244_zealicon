@@ -103,7 +103,7 @@ function Team() {
             </p>
             <div className="pb-32 text-white text-left px-8 text-xs md:text-md lg:text-xl">
               Dr. K.S. Sujata(Chairman)
-              <br />
+              <br/>
               Dr. Dheeraj Pandey(Convener)
               <br />
               Dr. Suvandan Saraswat(Member)
