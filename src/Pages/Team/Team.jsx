@@ -95,7 +95,7 @@ function Team() {
             {/* //prashant sir principal sir images */}
           </div>
         </div>
-        <div class="px-10 grid grid-cols-2 md:grid-cols-3 justify-around">
+        <div class="px-10 grid grid-cols-1 md:grid-cols-3 justify-around">
           <div>
             <p className=" text-[#7EF2F6] font-[rabu-kliwon] px-8 pt-6 text-s md:text-l lg:text-3xl font-bold">
               {" "}
