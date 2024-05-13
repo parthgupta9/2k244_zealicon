@@ -38,17 +38,18 @@
 .main {
     /* background: url("../../../public/assets/images/LandingBack.png"); */
     background-color: black;
-    background:url("../Home/images/dark_bg.jpg");
+  
     background-repeat: no-repeat;
     background-size: 100vw;
     background-size: auto calc(100%/5) ;
-    min-height: 100vh;
+   
 }
 
 .cards11 {
     /* background: url("../../../public/assets/images/LandingBack.png");
     background-color: black;
     min-height: 100vh; */
+    background:url("../Home/images/dark_bg.jpg");
     flex-wrap: wrap;
     padding-bottom: 2rem;
     /* overflow: hidden; */
