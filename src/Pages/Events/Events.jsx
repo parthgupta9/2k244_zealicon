@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Events.css";
 import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/footer";
+import Footer from "../../components/Footer/Footer.jsx";
 import Ghosts from "../../components/Ghosts/Ghosts";
 import Eventshead from "../../assets/images/eventshead.png";
 import leftFrame from "../../assets/images/leftFrame.png";
@@ -69,8 +69,10 @@ function Events(){
       </div> 
       <div className="Zeal-bg pt-7">
         {/* <ZealCard /> */}
+        
         <div className="py-6">
-          <p className=" text-brighterYellow text-4xl pb-6 font-bold pl-4 md:pl-24 ">
+          <p className=" eventhead text-center text-8xl  text-[#7EF2F6] font-[rabu-kliwon] pb-4">EVENTS</p>
+          <p className=" galleryhead text-5xl text-center p-10 font-normal ">
             {" "}
             Gallery
           </p>
@@ -95,12 +97,12 @@ function Events(){
         </div>
         <div className="flex-col flex md:flex-row pt-8 items-center justify-center gap-5">
           <Link to={BrochurePDF} target="_blank">
-            <button className="text-white border-2 rounded-md px-12 mx-2 py-2">
+            <button className="text-white border-2 border-[#0A2530] rounded-md px-12 mx-2 py-2">
               Fest Brochure
             </button>
           </Link>
           <Link to={ZealiconPDF} target="_blank">
-            <button className="text-white bg-landingPink rounded-md px-12 py-2.5">
+            <button className=" text-white bg-[#0A2530] text- rounded-md px-12 py-2.5">
               Get Event Schedule <DownloadIcon className="ml-2" />
             </button>
           </Link>
@@ -172,7 +174,7 @@ function Events(){
                 value={searchQuery}
                 onInput={(e) => setSearchQuery(e.target.value)}
                 placeholder=" Search here"
-                className="input w-96 pl-10 bg-white text-black rounded-xl h-10"
+                className="input w-80 md:w-96 pl-10 bg-white text-black rounded-xl h-10"
               />
               <button
                 type="submit"
