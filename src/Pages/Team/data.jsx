@@ -172,9 +172,9 @@ const teamData = [
   },
   {
     id: 87,
-    name: "Samridh Pathela",
-    designation: "Co-Sponsorship Head",
-    photo: samridh,
+    name: "Rishabh",
+    designation: "Sponsorship Head",
+    photo: Rishabh,
   },
 
   {
