@@ -19,6 +19,7 @@ import BrochurePDF from "../../assets/EventSchedule/brochure.pdf";
 import { Link } from "react-router-dom";
 
 function Events(){
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [zealevents, setzealevents] = useState(null);
   const [selectedDay, setSelectedDay] = useState(null);
@@ -33,9 +34,26 @@ function Events(){
       })
       .catch((error) => console.log(error));
   }, []);
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+  
+  const updateWindowSize = () => {
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  };
+  
+  useEffect(() => {
+    window.addEventListener("resize", updateWindowSize);
+    return () => window.removeEventListener("resize", updateWindowSize);
+  }, []);
+
   return (
     <>
-      <Header/>
+    <Header setIsModalOpen={setIsModalOpen} windowSize={windowSize} />
       <Ghosts/>
        <div className="rotate linear infinite flex justify-center bg-center bg-no-repeat bg-cover bg-backYellow justify-items-center land">
         <div className="event pt-36 flex items-center justify-center">
