@@ -9,8 +9,12 @@
 }
 
 :root {
-  --light-green: #7EF2F6;
-  --dark-blue: #133B69;
+  --light-green: #7ef2f6;
+  --dark-blue: #133b69;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
