@@ -73,10 +73,7 @@ function Team() {
 
       <div className="main">
         <div className="pt-6 ">
-          <p className=" text-brighterYellow px-8 text-3xl font-bold">
-            {" "}
-            Management Team Committee
-          </p>
+        <p className=" eventhead text-center text-4xl  text-[#7EF2F6] font-[rabu-kliwon] pb-4">Management Team Committee</p>
           <div>
             <div className="cards11 pt-16  flex flex-wrap justify-center w-33%">
               {manTeam.map((member) => (
@@ -241,10 +238,7 @@ function Team() {
             </div>
           </div>
         </div>
-        <p className=" text-brighterYellow px-8 pt-6 text-3xl font-bold">
-          {" "}
-          Core Team Committee
-        </p>
+        <p className=" eventhead text-center text-4xl  text-[#7EF2F6] font-[rabu-kliwon] pb-4">Core Team Committee</p>
         <div className=" ">
           <div className="cards11 pt-16  flex flex-wrap justify-center w-full">
             {team.map((member) => (
@@ -265,10 +259,7 @@ function Team() {
           </div>
         </div>
 
-        <p className=" text-brighterYellow px-8 pt-10 text-3xl font-bold">
-          {" "}
-          Tech Team
-        </p>
+        <p className=" eventhead text-center text-4xl  text-[#7EF2F6] font-[rabu-kliwon] pb-4">Tech Team</p>
         <div className=" pb-36">
           <div className="cards11 pt-16  flex flex-wrap justify-center w-full">
             {techTeam.map((member) => (
