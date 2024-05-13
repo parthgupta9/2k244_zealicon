@@ -76,18 +76,18 @@ function Team() {
         <p className=" eventhead text-center text-4xl  text-[#7EF2F6] font-[rabu-kliwon] pb-4">Management Team Committee</p>
           <div>
             <div className="cards11 pt-16  flex flex-wrap justify-center w-33%">
-              {manTeam.map((member) => (
+              {manTeam.map((Member) => (
                 <div className="w-33% px-10 pb-20 mb-32 pp">
                   <img
                     className="object-cover"
-                    src={member.photo}
-                    alt={member.name}
+                    src={Member.photo}
+                    alt={Member.name}
                   />
                   <h3 className="bg-brighterYellow w-full text-center">
-                    {member.name}
+                    {Member.name}
                   </h3>
                   <h3 className="bg-brighterYellow  w-full text-center">
-                    {member.designation}
+                    {Member.designation}
                   </h3>
                 </div>
               ))}
@@ -97,28 +97,28 @@ function Team() {
         </div>
         <div class="px-10 grid grid-cols-2 md:grid-cols-3 justify-around">
           <div>
-            <p className=" text-brighterYellow px-8 pt-6 text-s md:text-l lg:text-3xl font-bold">
+            <p className=" text-[#7EF2F6] font-[rabu-kliwon] px-8 pt-6 text-s md:text-l lg:text-3xl font-bold">
               {" "}
               Technical Committee
             </p>
-            <div className="pb-32 text-white text-left px-8 text-xs md:text-md lg:text-xl">
-              Dr. K.S. Sujata(Chairman)
+            <div className="pb-32 text-white font-[rabu-kliwon] text-left px-8 text-xs md:text-md lg:text-xl">
+              Dr. K.S. Sujata(Chairperson)
               <br />
               Dr. Dheeraj Pandey(Convener)
               <br />
               Dr. Suvandan Saraswat(Member)
               <br />
-              Dr. Richa Verma(Member)
+              Mr. Rahul Kumar Gupta(Member)
               <br />
             </div>
           </div>
           <div>
-            <p className=" text-brighterYellow px-8 pt-6 text-s md:text-l lg:text-3xl font-bold">
+            <p className=" text-[#7EF2F6] font-[rabu-kliwon] px-8 pt-6 text-s md:text-l lg:text-3xl font-bold">
               {" "}
               Cultural and Literary Committee
             </p>
-            <div className="pb-32 text-white text-left px-8 text-xs md:text-md lg:text-xl">
-              Dr. Roli Verma(Chairman)
+            <div className="pb-32 text-white font-[rabu-kliwon] text-left px-8 text-xs md:text-md lg:text-xl">
+              Dr. Roli Verma(Chairperson)
               <br />
               Dr. Ashima Srivastava(Convener)
               <br />
@@ -129,111 +129,110 @@ function Team() {
             </div>
           </div>
           <div>
-            <p className=" text-brighterYellow px-8 pt-6 text-s md:text-l lg:text-3xl font-bold">
+            <p className="text-[#7EF2F6] font-[rabu-kliwon] px-8 pt-6 text-s md:text-l lg:text-3xl font-bold">
               {" "}
               Finance Committee
             </p>
-            <div className="pb-32 text-white text-left px-8 text-xs md:text-md lg:text-xl">
-              Dr. Manoj Kumar N S(Chairman)
+            <div className="pb-32 text-white font-[rabu-kliwon] text-left px-8 text-xs md:text-md lg:text-xl">
+              Dr. Manoj Kumar N S(Chairperson)
               <br />
               Dr. R S Jagdish(Convener)
               <br />
-              Dr. S.S. Shirur(member) <br />
-              Dr. Prashant Chauhan(member) <br />
+              Dr. S.S. Shirur(Member) <br />
+              Dr. Prashant Chauhan(Member) <br />
             </div>
           </div>
           <div>
-            <p className=" text-brighterYellow px-8 pt-6 text-s md:text-l lg:text-3xl font-bold">
+            <p className=" text-[#7EF2F6] font-[rabu-kliwon] px-8 pt-6 text-s md:text-l lg:text-3xl font-bold">
               {" "}
               Discipline Committee
             </p>
-            <div className="pb-32 text-white text-left px-8 text-xs md:text-md lg:text-xl">
-              Dr. Mayank Singh(Chairman)
+            <div className="pb-32 text-white font-[rabu-kliwon] text-left px-8 text-xs md:text-md lg:text-xl">
+              Dr. Arun Kumar G.(Chairperson)
               <br />
-              Dr. Arun Kumar G.(Convener)
+              Dr. Harikesh Singh(Convener)
               <br />
-              Dr. Sanjiba Kr Bisoyi(member)
+              Dr. Chhaya Grover(Member)
               <br />
-              Dr. B P Mishra(member)
+              Dr. Sanjiba Kr. Bisoyi(Member)
               <br />
-              Ms. Chhaya Grover(member)
+              Dr. Navneet Kumar Pandey(Member)
               <br />
             </div>
           </div>
           <div>
-            <p className=" text-brighterYellow px-8 pt-6 text-s md:text-l lg:text-3xl font-bold">
+            <p className=" text-[#7EF2F6] font-[rabu-kliwon] px-8 pt-6 text-s md:text-l lg:text-3xl font-bold">
               {" "}
               Publicity/Media/ Banner
             </p>
-            <div className="pb-32 text-white text-left px-8 text-xs md:text-md lg:text-xl">
-              Dr. Yogendra Singh (Chairman)
+            <div className="pb-32 text-white font-[rabu-kliwon] text-left px-8 text-xs md:text-md lg:text-xl">
+              Dr. Yogendra Singh (Chairperson)
               <br />
               Mr. A N Veerendra Kumar (Convener)
               <br />
-              Mr. Naveen J.(member)
+              Mr. Naveen J.(Member)
               <br />
-              Mr. Girish B.E(member)
+              Mr. Girish B.E(Member)
               <br />
             </div>
           </div>
           <div>
-            <p className=" text-brighterYellow px-8 pt-6 text-s md:text-l lg:text-3xl font-bold">
+            <p className=" text-[#7EF2F6] font-[rabu-kliwon] px-8 pt-6 text-s md:text-l lg:text-3xl font-bold">
               {" "}
               Sponsorship Committee
             </p>
-            <div className="pb-32 text-white text-left px-8 text-xs md:text-md lg:text-xl">
-              Dr. Prashant Chauhan (Chairman)
+            <div className="pb-32 text-white font-[rabu-kliwon] text-left px-8 text-xs md:text-md lg:text-xl">
+              Dr. Prashant Chauhan (Chairperson)
               <br />
-              Dr. Nitin Kumar Chauhan(Convener)
+              Mr. Nitin Kumar Chauhan(Convener)
               <br />
-              Dr. Nirmal Agarwal(member)
+              Mr. Nirmal Agarwal(Member)
               <br />
             </div>
           </div>
           <div>
-            <p className=" text-brighterYellow px-8 pt-6 text-s md:text-l lg:text-3xl font-bold">
+            <p className=" text-[#7EF2F6] font-[rabu-kliwon] font-[rabu-kliwon] px-8 pt-6 text-s md:text-l lg:text-3xl font-bold">
               {" "}
               Inauguration Committee
             </p>
-            <div className="pb-32 text-white text-left px-8 text-xs md:text-md lg:text-xl">
-              Dr. Pranava Manjari (Chairman)
+            <div className="pb-32 text-white font-[rabu-kliwon]  text-left px-8 text-xs md:text-md lg:text-xl">
+              Dr. Pranava Manjari (Chairperson)
               <br />
               Dr. Ranu Pandey (Convener)
               <br />
-              Ms. Priyanka Singh(member)
+              Ms. Sangeeta Singh(Member)
               <br />
-              Ms. Divya Chandra(member)
+              Ms. Divya Chandra(Member)
               <br />
             </div>
           </div>
           <div>
-            <p className=" text-brighterYellow px-8 pt-6 text-s md:text-l lg:text-3xl font-bold">
+            <p className=" text-[#7EF2F6] font-[rabu-kliwon] px-8 pt-6 text-s md:text-l lg:text-3xl font-bold">
               {" "}
               Registration Committee
             </p>
-            <div className="pb-32 text-white text-left px-8 text-xs md:text-md lg:text-xl">
-              Dr. Bhupender Parashar (Chairman)
+            <div className="pb-32 text-white font-[rabu-kliwon] text-left px-8 text-xs md:text-md lg:text-xl">
+              Dr. Bhupender Parashar (Chairperson)
               <br />
               Dr. Nikunj Agarwal (Convener)
               <br />
-              Mr. Rajesh Kumar(member)
+              Mr. Rajesh Kumar(Member)
               <br />
-              Mr. Madan Prasad(member)
             </div>
           </div>
           <div>
-            <p className=" text-brighterYellow px-8 pt-6 text-s md:text-l lg:text-3xl font-bold">
+            <p className=" text-[#7EF2F6] font-[rabu-kliwon] px-8 pt-6 text-s md:text-l lg:text-3xl font-bold">
               {" "}
               Stationary Committee
             </p>
-            <div className="pb-32 text-white text-left px-8 text-xs md:text-md lg:text-xl">
-              Dr. S.S Shirur(Chairman)
+            <div className="pb-32 text-white font-[rabu-kliwon] text-left px-8 text-xs md:text-md lg:text-xl">
+              Dr. S.S Shirur(Chairperson)
               <br />
-              Mr. Deependra Sharma (Convener)
+              Dr. Deependra Sharma (Convener)
               <br />
-              Mr. Udit Mittal(member)
+              Mr. Udit Mittal(Member)
               <br />
-              Ms. Sangeeta Singh(member)
+              Dr. Priyanka Singh(Member)
               <br />
             </div>
           </div>
@@ -241,18 +240,18 @@ function Team() {
         <p className=" eventhead text-center text-4xl  text-[#7EF2F6] font-[rabu-kliwon] pb-4">Core Team Committee</p>
         <div className=" ">
           <div className="cards11 pt-16  flex flex-wrap justify-center w-full">
-            {team.map((member) => (
+            {team.map((Member) => (
               <div className="w-33% px-10 pb-20 mb-32 pp">
                 <img
                   className="object-cover"
-                  src={member.photo}
-                  alt={member.name}
+                  src={Member.photo}
+                  alt={Member.name}
                 />
                 <h3 className="bg-brighterYellow w-full text-center">
-                  {member.name}
+                  {Member.name}
                 </h3>
                 <h3 className="bg-brighterYellow  w-full text-center">
-                  {member.designation}
+                  {Member.designation}
                 </h3>
               </div>
             ))}
@@ -262,18 +261,18 @@ function Team() {
         <p className=" eventhead text-center text-4xl  text-[#7EF2F6] font-[rabu-kliwon] pb-4">Tech Team</p>
         <div className=" pb-36">
           <div className="cards11 pt-16  flex flex-wrap justify-center w-full">
-            {techTeam.map((member) => (
+            {techTeam.map((Member) => (
               <div className="w-33% px-10 pb-20 mb-32 pp">
                 <img
                   className="object-cover"
-                  src={member.photo}
-                  alt={member.name}
+                  src={Member.photo}
+                  alt={Member.name}
                 />
                 <h3 className="bg-brighterYellow w-full text-center">
-                  {member.name}
+                  {Member.name}
                 </h3>
                 <h3 className="bg-brighterYellow  w-full text-center">
-                  {member.designation}
+                  {Member.designation}
                 </h3>
               </div>
             ))}

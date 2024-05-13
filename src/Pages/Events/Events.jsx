@@ -221,7 +221,7 @@ function Events(){
         </div>
         
       </div>
-      <Ghosts/>
+      {/* <Ghosts/> */}
       <Footer />
     </>
   );
