@@ -45,13 +45,13 @@
 }
 
 .main {
-    background-image: url("../Home/images/dark_bg.jpg");
-   
+    /* background: url("../../../public/assets/images/LandingBack.png"); */
+    background-color: black;
+    min-height: 100vh;
 }
 
 @media screen and (max-width: 768px) {
     .topteam {
-        background-image: url("./Home/images/dark_bg.jpg");
         /* background-image: url("../../assets/images/finalbg.png"); */
         /* background-image: url("../Home/images/dark_bg.jpg"); */
         /* background-image: url("./home_phone_bg.jpg"); */
