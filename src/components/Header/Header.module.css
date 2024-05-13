@@ -1,8 +1,8 @@
 .header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   color: white;
-  padding: 1.25rem 0rem;
+  padding: 1.25rem 6rem;
   gap: 3rem;
   position: absolute;
   top: 0;

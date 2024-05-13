@@ -12,7 +12,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/footer";
+import Footer from "../../components/Footer/Footer";
 import Ghosts from "../../components/Ghosts/Ghosts";
 
 

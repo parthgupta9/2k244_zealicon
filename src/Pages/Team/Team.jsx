@@ -5,7 +5,7 @@ import teamDataMan from "./dataman.jsx";
 import { useEffect, useState } from "react";
 import "./Team.css";
 import Header from "../../components/Header/Header.jsx"
-import Footer from "../../components/Footer/footer";
+import Footer from "../../components/Footer/Footer.jsx";
 import Ghosts from "../../components/Ghosts/Ghosts";
 
 function Team() {
