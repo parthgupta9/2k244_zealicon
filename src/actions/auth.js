@@ -152,10 +152,11 @@ export const verifyOtp = (data, loaderOff, toast) => async (dispatch) => {
   }
 };
 
-export const resendOtp = (data, loaderoff) => async (dispatch) => {
+export const resendOtp = (data, loaderoff, toast) => async (dispatch) => {
   try {
     const response = await api.resendOtp(data);
     if (response.status === 200) {
+      toast.success("OTP Sent Successfully")
       dispatch({ type: RESEND_OTP_SUCCESS });
     }
   } catch (error) {

@@ -3,17 +3,26 @@ import styles from "./Pay.module.css";
 import payBtn from "./assets/payBtn.svg";
 import Loader from "../../components/Loader/Loader";
 import { useDispatch } from "react-redux";
-import { doPayment} from "../../actions/payment";
+import { doPayment } from "../../actions/payment";
 import { toast } from "react-toastify";
+import { load } from "@cashfreepayments/cashfree-js";
 
 const Pay = () => {
+  let cashfree;
+  let insitialzeSDK = async function () {
+    cashfree = await load({
+      mode: "sandbox",
+    });
+  };
+
+  insitialzeSDK();
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const loaderOff = () => setIsLoading(false);
 
   const handleSubmit = () => {
     setIsLoading(true);
-    dispatch(doPayment(loaderOff, toast))
+    dispatch(doPayment(cashfree, loaderOff, toast));
   };
 
   return (
@@ -21,11 +30,11 @@ const Pay = () => {
       <div className={styles.header}>
         Purchase your Zeal Tag
         <br />
-        ₹300
+        ₹200
       </div>
       <p>
-        Entry to ZEALICON 2023 is through a Valid Zeal ID <br />
-        You need to pay ₹300 to get the entry
+        Entry to ZEALICON 2024 is through a Valid Zeal ID <br />
+        You need to pay ₹200 to get the entry
       </p>
       <div className={styles.btnwrap}>
         <button onClick={handleSubmit} disabled={isLoading}>

@@ -7,85 +7,75 @@ import {
 import { fetchZealId } from "./zeal";
 
 // Action Creators
-export const doPayment = (loaderOff, toast) => async (dispatch) => {
+export const doPayment = (cashfree, loaderOff, toast) => async (dispatch) => {
   try {
     const token = localStorage.getItem("token");
-    const ID = localStorage.getItem("id");
+    const ID = localStorage.getItem("id"); // USER ID HERE
     if (!token || !ID) {
       console.log("Logging out");
       dispatch({ type: LOGOUT });
       return;
     }
 
-    // Get Key - get
-    const {
-      data: { key },
-    } = await api.getPaymentKey();
+    await dispatch(fetchZealId());
+    
+    // get the session ID
+    let sessionId = null;
+    try {
+      const response = await api.checkout({ jwtToken: token });
+      if (response.status === 200) {
+        sessionId = response.data.session_id;
+      }
+    } catch (error) {
+      if (error.response.status === 401 || error.response.status === 403) {
+        // 401 - Unauthorized Access
+        // 403 - User Not Present in the DB
+        toast.error("Unauthorized Access");
+        toast.error("Logging out...");
+        dispatch({ type: LOGOUT });
+        return;
+      } else {
+        toast.error("Server Down!");
+        dispatch({ type: PAYMENT_FAILURE });
+        return;
+      }
+    }
 
-    const {
-      data: { order },
-    } = await api.checkout({ jwtToken: token });
-
-    const options = {
-      key,
-      amount: order.amount,
-      currency: "INR",
-      name: "Zealicon",
-      description: "Purhcase Zealicon Zeal ID",
-      image:
-        "https://res.cloudinary.com/dlvkf6kgm/image/upload/v1715349430/idCards/k9lu1au32sfscuieehsg.png",
-      order_id: order.id,
-      handler: async function (response) {
-        if (response.status_code === 200) {
-          const paymentData = {
-            razorpay_order_id: response.razorpay_order_id,
-            razorpay_payment_id: response.razorpay_payment_id,
-            razorpay_signature: response.razorpay_signature,
-          };
-          try {
-            const response = await api.paymentVerification(paymentData, ID);
-            if (response.status === 200) {
-              toast.success("Payment Successfully Done!");
-              dispatch({ type: PAYMENT_SUCCESS, payload: { step: 5 } });
-              dispatch(fetchZealId());
-            }
-          } catch (error) {
-            if (error.response.status === 401) {
-              toast.error("Contact Developers! Payment Authentication Failed");
-              dispatch({ type: PAYMENT_FAILURE, payload: { error: null } });
-            } else {
-              dispatch({
-                type: PAYMENT_FAILURE,
-                payload: { error: "SERVER DOWN!" },
-              });
-            }
-          }
-        }
-      },
-      prefill: {
-        name: "John Doe",
-        email: "Default@example.com",
-        contact: "9999999999",
-      },
-      notes: {
-        address: "Razorpay Corporate Office",
-      },
-      theme: {
-        color: "#121212",
-      },
+    let checkoutOptions = {
+      paymentSessionId: sessionId,
+      redirectTarget: "_modal",
     };
-    const razor = new window.Razorpay(options);
 
-    razor.on("payment.failed", function (response) {
-      toast.error("Payment Failed!");
-      dispatch({
-        type: PAYMENT_FAILURE,
-        payload: { error: response.error.message },
-      });
+    cashfree.checkout(checkoutOptions).then(async (result) => {
+      // Verify Payment
+      try {
+        const response = await api.paymentVerification(ID);
+        console.log("Response", response);
+        if (response.status == 200) {
+          toast.success("Payment Successfully Completed");
+          dispatch({ type: PAYMENT_SUCCESS });
+          dispatch(fetchZealId());
+        }
+      } catch (error) {
+        if (error.response.status === 404) {
+          toast.error("Unauthorized Access");
+          toast.error("Logging out...");
+          dispatch({ type: LOGOUT });
+          return;
+        } else if (error.response.status === 403) {
+          toast.error("Zeal ID already exists");
+          dispatch(fetchZealId());
+        } else if (error.response.status === 401) {
+          toast.error("Payment Failed");
+          dispatch({ type: PAYMENT_FAILURE });
+        } else {
+          toast.error("Server Down");
+          dispatch({ type: PAYMENT_FAILURE });
+        }
+      }
     });
-
-    razor.open();
   } catch (error) {
+    console.log(error);
     dispatch({ type: PAYMENT_FAILURE, payload: { error: error.message } });
   } finally {
     loaderOff();

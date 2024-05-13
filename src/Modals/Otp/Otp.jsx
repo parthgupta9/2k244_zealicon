@@ -5,7 +5,7 @@ import styles from "./Otp.module.css";
 import submitBtn from "./assets/submit.svg";
 import Loader from "../../components/Loader/Loader";
 import OtpInput from "../../components/Loader/OtpInput/OtpInput";
-import { verifyOtp } from "../../actions/auth";
+import { resendOtp, verifyOtp } from "../../actions/auth";
 import { toast } from "react-toastify";
 import { LOGIN_STARTED } from "../../actions/actionType/actionType";
 
@@ -31,12 +31,9 @@ const Otp = () => {
     dispatch(verifyOtp(data, loaderOff, toast));
   };
 
-  const resendOtp = async () => {
+  const resend = async () => {
     setIsLoading(true);
-    dispatch(resendOtp({ email: userData.email }, loaderOff));
-    if (error == null) {
-      alert("We have sent the OTP, check your mail!");
-    }
+    dispatch(resendOtp({ email: userData.email }, loaderOff, toast));
   };
 
   return (
@@ -51,7 +48,7 @@ const Otp = () => {
             </div>
           </div>
           <p className={styles.resendLink}>
-            Didn't receive OTP? <span onClick={resendOtp}>Resend OTP</span>
+            Didn't receive OTP? <span onClick={resend}>Resend OTP</span>
           </p>
           <div className={styles.btnwrap}>
             <button type="submit" disabled={isLoading}>

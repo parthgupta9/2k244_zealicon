@@ -21,13 +21,12 @@ API.interceptors.request.use((req) => {
 export const signUp = (formData) => API.post("/api/auth/signup", formData);
 export const logIn = (authData) => API.post("/api/auth/login", authData);
 export const verifyOtp = (data) => API.post("/api/auth/verify-otp", data);
-export const resendOtp = (data) => API.post("/api/auth/resend-otp", data);
+export const resendOtp = (data) => API.patch("/api/auth/resend-otp", data);
 
 // Payment
-export const getPaymentKey = () => API.get("/api/payment/get-key");
 export const checkout = (data) => API.post("/api/payment/checkout", data);
-export const paymentVerification = (paymentData, ID) =>
-  API.post(`/api/payment/payment-verification/${ID}`, paymentData);
+export const paymentVerification = (ID) =>
+  API.get(`/api/payment/payment-verification/${ID}`);
 
 // Zeal Id
 export const fetchZealId = (jwtToken) =>
