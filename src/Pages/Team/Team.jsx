@@ -247,12 +247,12 @@ function Team() {
                   src={Member.photo}
                   alt={Member.name}
                 />
-                <h3 className="bg-brighterYellow w-full text-center">
+                {/* <h3 className="bg-brighterYellow w-full text-center">
                   {Member.name}
                 </h3>
                 <h3 className="bg-brighterYellow  w-full text-center">
                   {Member.designation}
-                </h3>
+                </h3> */}
               </div>
             ))}
           </div>
