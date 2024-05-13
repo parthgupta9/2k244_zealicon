@@ -6,6 +6,7 @@ import { LOGOUT } from "../../actions/actionType/actionType";
 
 import { toast } from "react-toastify";
 import Hamburger from "hamburger-react";
+import { Link } from 'react-router-dom';
 
 import styles from "./Header.module.css";
 import Button from "../Button/Button";
@@ -38,8 +39,8 @@ const Header = ({ setIsModalOpen, windowSize }) => {
         <nav className={styles.mobileNav}>
           <ul className={styles.mobileNavLinksCont}>
             <li>About</li>
-            <li>Events</li>
-            <li>Team</li>
+            <li><Link to='/events'>Events</Link></li>
+            <li><Link to='/team'>Team</Link></li>
             <li>Download App</li>
           </ul>
           {zealId && isAuthenticated ? (
@@ -76,9 +77,9 @@ const Header = ({ setIsModalOpen, windowSize }) => {
 
         <nav className={styles.desktopNav}>
           <ul>
-            <li>About</li>
-            <li>Events</li>
-            <li>Team</li>
+            <li><Link to=''>About</Link></li>
+            <li><Link to='/events'>Events</Link></li>
+            <li><Link to='/team'>Team</Link></li>
             <li>Download App</li>
             {zealId && isAuthenticated ? (
               <Button

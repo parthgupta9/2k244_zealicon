@@ -8,9 +8,8 @@
 .land {
   /* background-image: url("../../assets/images/finalbg.png"); */
   /* background-image: url("../Home/images/dark_bg.jpg"); */
-  background-image: url("home_bg.jpg");
   background-size: cover;
-  height: 420px;
+  height: 500px;
 }
 
 .rightFrame {
@@ -52,8 +51,8 @@
 
 .Zeal-bg {
   /* background: url("../../../public/assets/images/LandingBack.png"); */
-  /* background-image: url("home_bg.jpg"); */
-  /* background-color: black; */
+  background-image: url("home_bg.jpg");
+  background-color: black;
   min-height: 100vh;
 }
 

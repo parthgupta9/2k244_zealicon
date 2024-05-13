@@ -12,8 +12,9 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
+import Footer from "../../components/Footer/footer";
 import Ghosts from "../../components/Ghosts/Ghosts";
+
 
 import Modal from "../Modal/Modal";
 
@@ -115,7 +116,7 @@ const Home = () => {
         {/* Info Section ------------------------------------------------------------ */}
 
         <div className={styles.sectionsCont}>
-          <div className={styles.infoSection}>
+          <div className={styles.infoSection} >
             <p className={styles.eventDesc}>
               Zealicon is the annual techno-cultural festival of JSSATE, Noida.
               Dedicated to the celebration of creativity and science, it is a

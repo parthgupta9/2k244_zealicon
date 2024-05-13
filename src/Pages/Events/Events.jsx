@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./Events.css";
-import Header from "../../components/Header/Header.jsx";
-import Footer from "../../components/Footer/Footer.jsx";
-import Ghosts from "../../components/Ghosts/Ghosts.jsx";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/footer";
+import Ghosts from "../../components/Ghosts/Ghosts";
 import Eventshead from "../../assets/images/eventshead.png";
 import leftFrame from "../../assets/images/leftFrame.png";
 import rightFrame from "../../assets/images/rightFrame.png";
@@ -37,10 +37,8 @@ function Events(){
     <>
       <Header/>
       <Ghosts/>
-       <div className="rotate linear infinite flex justify-center bg-center bg-no-repeat bg-cover bg-backYellow h-full justify-items-center land">
+       <div className="rotate linear infinite flex justify-center bg-center bg-no-repeat bg-cover bg-backYellow justify-items-center land">
         <div className="event pt-36 flex items-center justify-center">
-
-          <p className="Events-heading">EVENTS</p>
         </div>
       </div>
       <div className="bands flex flex-row">
