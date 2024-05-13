@@ -34,6 +34,8 @@ export const doPayment = (cashfree, loaderOff, toast) => async (dispatch) => {
         toast.error("Logging out...");
         dispatch({ type: LOGOUT });
         return;
+      } else if (error.response.status === 405) {
+        dispatch({ type: PAYMENT_FAILURE, payload: { error: error.message } });
       } else {
         toast.error("Server Down!");
         dispatch({ type: PAYMENT_FAILURE });
@@ -44,6 +46,10 @@ export const doPayment = (cashfree, loaderOff, toast) => async (dispatch) => {
     let checkoutOptions = {
       paymentSessionId: sessionId,
       redirectTarget: "_modal",
+      customer: {
+        name: "Zealicon",
+        logo: "https://res.cloudinary.com/dlvkf6kgm/image/upload/v1715349430/idCards/k9lu1au32sfscuieehsg.png",
+      },
     };
 
     cashfree.checkout(checkoutOptions).then(async (result) => {
@@ -67,10 +73,16 @@ export const doPayment = (cashfree, loaderOff, toast) => async (dispatch) => {
           dispatch(fetchZealId());
         } else if (error.response.status === 401) {
           toast.error("Payment Failed");
-          dispatch({ type: PAYMENT_FAILURE });
+          dispatch({
+            type: PAYMENT_FAILURE,
+            payload: { error: error.message },
+          });
         } else {
           toast.error("Server Down");
-          dispatch({ type: PAYMENT_FAILURE });
+          dispatch({
+            type: PAYMENT_FAILURE,
+            payload: { error: error.message },
+          });
         }
       }
     });
