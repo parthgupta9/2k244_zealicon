@@ -53,6 +53,8 @@
 .Zeal-bg {
   /* background: url("../../../public/assets/images/LandingBack.png"); */
   background-image: url("../Home/images/dark_bg.jpg");
+  background-repeat: repeat-y ;
+  
   min-height: 140vh;
 
 }
@@ -87,13 +89,7 @@
   }
 }
 @media screen and (max-width: 768px) {
-  .land {
-    /* background-image: url("../../assets/images/finalbg.png"); */
-    /* background-image: url("../Home/images/dark_bg.jpg"); */
-    background-image: url("./home_phone_bg.jpg");
-    background-size: cover;
-    height: 650px;
-  }
+
   .container {
     display: flex;
     flex-direction: column;

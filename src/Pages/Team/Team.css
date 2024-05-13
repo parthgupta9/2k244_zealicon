@@ -39,8 +39,9 @@
     /* background: url("../../../public/assets/images/LandingBack.png"); */
     background-color: black;
     background:url("../Home/images/dark_bg.jpg");
-    background-repeat: repeat;
-    background-position: ;
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    background-size: auto calc(100%/5) ;
     min-height: 100vh;
 }
 
