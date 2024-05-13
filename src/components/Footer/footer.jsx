@@ -1,6 +1,6 @@
 import styles from "./Footer.module.css";
 
-const footer = () => {
+const Footer = () => {
   return (
     <footer className={styles.footerCont}>
       <section className={styles.infoSection}>
@@ -45,4 +45,4 @@ const footer = () => {
   );
 };
 
-export default footer;
+export default Footer;
