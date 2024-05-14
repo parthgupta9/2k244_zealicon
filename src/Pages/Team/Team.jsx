@@ -95,13 +95,13 @@ function Team() {
             {/* //prashant sir principal sir images */}
           </div>
         </div>
-        <div class="px-10 grid grid-cols-1 md:grid-cols-3 justify-around">
+        <div class="px-10 grid grid-cols-1 md:grid-cols-3 justify-center md:justify-around gap-y-7">
           <div>
-            <p className=" text-[#7EF2F6] font-[rabu-kliwon] px-8 pt-6 text-s md:text-l lg:text-3xl font-bold">
+            <p className=" text-[#7EF2F6] font-[rabu-kliwon] px-8 pt-6 text-s md:text-l lg:text-3xl font-bold ">
               {" "}
               Technical Committee
             </p>
-            <div className="pb-32 text-white font-[rabu-kliwon] text-left px-8 text-xs md:text-md lg:text-xl">
+            <div className=" text-white font-[rabu-kliwon] text-left px-8 text-xs md:text-md lg:text-xl">
               Dr. K.S. Sujata(Chairman)
               <br />
               Dr. Dheeraj Pandey(Convener)
@@ -117,7 +117,7 @@ function Team() {
               {" "}
               Cultural and Literary Committee
             </p>
-            <div className="pb-32 text-white font-[rabu-kliwon] text-left px-8 text-xs md:text-md lg:text-xl">
+            <div className=" text-white font-[rabu-kliwon] text-left px-8 text-xs md:text-md lg:text-xl">
               Dr. Roli Verma(Chairperson)
               <br />
               Dr. Ashima Srivastava(Convener)
@@ -133,7 +133,7 @@ function Team() {
               {" "}
               Finance Committee
             </p>
-            <div className="pb-32 text-white font-[rabu-kliwon] text-left px-8 text-xs md:text-md lg:text-xl">
+            <div className=" text-white font-[rabu-kliwon] text-left px-8 text-xs md:text-md lg:text-xl">
               Dr. Manoj Kumar N S(Chairperson)
               <br />
               Dr. R S Jagdish(Convener)
@@ -147,7 +147,7 @@ function Team() {
               {" "}
               Discipline Committee
             </p>
-            <div className="pb-32 text-white font-[rabu-kliwon] text-left px-8 text-xs md:text-md lg:text-xl">
+            <div className=" text-white font-[rabu-kliwon] text-left px-8 text-xs md:text-md lg:text-xl">
               Dr. Arun Kumar G.(Chairperson)
               <br />
               Dr. Harikesh Singh(Convener)
@@ -165,7 +165,7 @@ function Team() {
               {" "}
               Publicity/Media/ Banner
             </p>
-            <div className="pb-32 text-white font-[rabu-kliwon] text-left px-8 text-xs md:text-md lg:text-xl">
+            <div className=" text-white font-[rabu-kliwon] text-left px-8 text-xs md:text-md lg:text-xl">
               Dr. Yogendra Singh (Chairperson)
               <br />
               Mr. A N Veerendra Kumar (Convener)
@@ -181,7 +181,7 @@ function Team() {
               {" "}
               Sponsorship Committee
             </p>
-            <div className="pb-32 text-white font-[rabu-kliwon] text-left px-8 text-xs md:text-md lg:text-xl">
+            <div className=" text-white font-[rabu-kliwon] text-left px-8 text-xs md:text-md lg:text-xl">
               Dr. Prashant Chauhan (Chairperson)
               <br />
               Mr. Nitin Kumar Chauhan(Convener)
@@ -191,11 +191,11 @@ function Team() {
             </div>
           </div>
           <div>
-            <p className=" text-[#7EF2F6] font-[rabu-kliwon] font-[rabu-kliwon] px-8 pt-6 text-s md:text-l lg:text-3xl font-bold">
+            <p className=" text-[#7EF2F6] font-[rabu-kliwon] px-8 pt-6 text-s md:text-l lg:text-3xl font-bold">
               {" "}
               Inauguration Committee
             </p>
-            <div className="pb-32 text-white font-[rabu-kliwon]  text-left px-8 text-xs md:text-md lg:text-xl">
+            <div className=" text-white font-[rabu-kliwon]  text-left px-8 text-xs md:text-md lg:text-xl">
               Dr. Pranava Manjari (Chairperson)
               <br />
               Dr. Ranu Pandey (Convener)
@@ -211,7 +211,7 @@ function Team() {
               {" "}
               Registration Committee
             </p>
-            <div className="pb-32 text-white font-[rabu-kliwon] text-left px-8 text-xs md:text-md lg:text-xl">
+            <div className=" text-white font-[rabu-kliwon] text-left px-8 text-xs md:text-md lg:text-xl">
               Dr. Bhupender Parashar (Chairperson)
               <br />
               Dr. Nikunj Agarwal (Convener)
@@ -225,7 +225,7 @@ function Team() {
               {" "}
               Stationary Committee
             </p>
-            <div className="pb-32 text-white font-[rabu-kliwon] text-left px-8 text-xs md:text-md lg:text-xl">
+            <div className=" text-white font-[rabu-kliwon] text-left px-8 text-xs md:text-md lg:text-xl">
               Dr. S.S Shirur(Chairperson)
               <br />
               Dr. Deependra Sharma (Convener)
