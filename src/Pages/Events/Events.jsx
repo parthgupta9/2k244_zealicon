@@ -17,6 +17,7 @@ import DownloadIcon from "@mui/icons-material/Download";
 import ZealiconPDF from "../../assets/EventSchedule/zealicon23.pdf";
 import BrochurePDF from "../../assets/EventSchedule/brochure.pdf";
 import { Link } from "react-router-dom";
+// import Eventscards from "./Eventscards.jsx";
 
 function Events(){
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -180,8 +181,8 @@ function Events(){
             </div>
           </div>
         </div>
-        <div className="myevents pl-24">
-          <div className="events23 grid grid-cols-3">
+         <div className="myevents pl-24">
+          {/* <div className="events23 grid grid-cols-3">
             {zealevents && zealevents.length > 0
               ? zealevents
                   .filter((val) => {
@@ -212,8 +213,9 @@ function Events(){
                   })
                   .map((val, ind) => <EventCard title={val} index={ind} />)
               : null}
-          </div>
-        </div>
+          </div>  */}
+        </div> 
+        {/* <Eventscards/> */}
         
       </div>
    
