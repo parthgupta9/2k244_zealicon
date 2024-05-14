@@ -30,7 +30,7 @@ const teamDataMan = [
   {
     id: 44,
     name: "Dr. R.S. Jagdish",
-    designation: "1st year",
+    designation: "First Year Coordinator",
     photo: jagdish,
   },
   {
