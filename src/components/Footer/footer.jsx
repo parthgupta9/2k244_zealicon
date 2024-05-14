@@ -1,4 +1,5 @@
 import styles from "./footer.module.css";
+import { Link } from "react-router-dom";
 
 const footer = () => {
   return (
@@ -7,9 +8,15 @@ const footer = () => {
         <h2>Zealicon 2024</h2>
         <nav>
           <ul>
-            <li>About</li>
-            <li>Events</li>
-            <li>Team</li>
+            <li>
+              <a href="/#about">About</a>
+            </li>
+            <li>
+              <Link to="/events">Events</Link>
+            </li>
+            <li>
+              <Link to="/team">Team</Link>
+            </li>
             <li>Download App</li>
           </ul>
         </nav>
