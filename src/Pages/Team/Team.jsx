@@ -263,14 +263,14 @@ function Team() {
           <div className="cards11 pt-16  flex flex-wrap justify-center w-full">
             {techTeam.map((Member) => (
               <div className="w-33% px-10 pb-20 mb-32 pp">
-                <img
+                {/* <img
                   className="object-cover"
                   src={Member.photo}
                   alt={Member.name}
-                />
-                <h3 className="bg-brighterYellow w-full text-center">
+                /> */}
+                {/* <h3 className="bg-brighterYellow w-full text-center">
                   {Member.name}
-                </h3>
+                </h3> */}
                 <h3 className="bg-brighterYellow  w-full text-center">
                   {Member.designation}
                 </h3>
