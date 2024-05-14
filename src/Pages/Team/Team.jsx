@@ -75,7 +75,7 @@ function Team() {
 
       <div className="main">
         <div className="pt-6 ">
-        <p className=" eventhead text-center text-4xl  text-[#7EF2F6] font-[rabu-kliwon] pb-4">Management Team Committee</p>
+        <p className=" eventhead text-center text-4xl  text-[#7EF2F6] font-[rabu-kliwon] pb-32">Management Team Committee</p>
           <div>
             <div className="cards11 pt-16  flex flex-wrap justify-center w-33%">
               {manTeam.map((Member) => (
@@ -239,7 +239,7 @@ function Team() {
             </div>
           </div>
         </div>
-        <p className=" eventhead text-center text-4xl pt-16 text-[#7EF2F6] font-[rabu-kliwon] pb-4">Core Team Committee</p>
+        <p className=" eventhead text-center text-4xl  text-[#7EF2F6] font-[rabu-kliwon] pb-32">Core Team Committee</p>
         <div className=" ">
           <div className="cards11 pt-16 flex flex-wrap justify-center w-full">
             <div className="w-33% px-10 pb-20 mb-32 pp">
@@ -268,19 +268,19 @@ function Team() {
           </div>
         </div>
 
-        <p className=" eventhead text-center text-4xl  text-[#7EF2F6] font-[rabu-kliwon] pb-4">Tech Team</p>
+        <p className=" eventhead text-center text-4xl  text-[#7EF2F6] font-[rabu-kliwon] pb-32">Tech Team</p>
         <div className=" pb-36">
           <div className="cards11 pt-16  flex flex-wrap justify-center w-full">
             {techTeam.map((Member) => (
               <div className="w-33% px-10 pb-20 mb-32 pp">
-                <img
+                {/* <img
                   className="object-cover"
                   src={Member.photo}
                   alt={Member.name}
-                />
-                <h3 className="bg-brighterYellow w-full text-center">
+                /> */}
+                {/* <h3 className="bg-brighterYellow w-full text-center">
                   {Member.name}
-                </h3>
+                </h3> */}
                 <h3 className="bg-brighterYellow  w-full text-center">
                   {Member.designation}
                 </h3>
